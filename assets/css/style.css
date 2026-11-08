@@ -644,3 +644,41 @@ figcaption { font-size: var(--t-xs); color: var(--encre-douce); max-width: var(-
 .lecteur[data-format="vertical"] { width: min(24rem, 94vw); }
 .lecteur[data-format="carre"] { width: min(36rem, 94vw); }
 .lecteur video { max-height: calc(100vh - 7rem); object-fit: contain; }
+
+/* Apercu en grand : la vignette devient un lien avec un indicateur visible */
+.apercu { position: relative; display: block; border-radius: 10px; }
+.apercu img { display: block; width: 100%; transition: transform 0.4s var(--courbe); }
+.apercu:hover img { transform: translateY(-2px); }
+.apercu__badge {
+  position: absolute; left: 0.6rem; bottom: 0.6rem;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.4rem 0.7rem; border-radius: 999px;
+  background: var(--encre); color: var(--papier); font-size: var(--t-xs); font-weight: 700;
+}
+.apercu:focus-visible { outline: 3px solid var(--bleu); outline-offset: 3px; }
+
+/* Visionneuse : les images tiennent dans la hauteur de l'ecran, cote a cote si possible */
+.lecteur--images { width: min(72rem, 94vw); }
+.lecteur--images[data-nombre="1"] { width: min(80rem, 94vw); }
+.visionneuse__contenu {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;
+  padding: 0 1rem 1rem; max-height: calc(100vh - 6rem); overflow: auto;
+}
+.visionneuse__contenu figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; min-width: 0; }
+.visionneuse__contenu img {
+  display: block; width: auto; height: auto; max-width: 100%;
+  max-height: calc(100vh - 10rem); border-radius: 6px; background: var(--blanc);
+}
+.visionneuse__contenu figcaption { font-size: var(--t-xs); color: #C3C7D0; font-weight: 600; }
+.lecteur--images[data-nombre="2"] .visionneuse__contenu figure { flex: 1 1 18rem; }
+@media (max-width: 600px) {
+  .visionneuse__contenu img { max-height: none; width: 100%; }
+}
+
+/* Bouton pour copier l'adresse e-mail */
+.contact__copier {
+  margin-left: 0.5rem; padding: 0.35rem 0.8rem; border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35); background: transparent; color: var(--papier);
+  font: inherit; font-size: var(--t-xs); font-weight: 700; cursor: pointer;
+}
+.contact__copier:hover { background: rgba(255, 255, 255, 0.12); }

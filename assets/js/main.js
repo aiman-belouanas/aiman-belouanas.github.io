@@ -298,7 +298,7 @@ function initDonneesAnimees() {
    Sans JavaScript, le lien ouvre simplement le fichier vidéo.
    -------------------------------------------------------------------------- */
 function initVideo() {
-  const fenetre = document.querySelector(".lecteur");
+  const fenetre = document.querySelector(".lecteur:not(.lecteur--images)");
   const liens = document.querySelectorAll("[data-video-ouvrir]");
   if (!fenetre || !liens.length || typeof fenetre.showModal !== "function") return;
   const video = fenetre.querySelector("video");
@@ -332,6 +332,72 @@ function initVideo() {
 /* --------------------------------------------------------------------------
    Lancement
    -------------------------------------------------------------------------- */
+/* ---------- Apercu en grand des travaux visuels ----------
+   Un clic ouvre les images en grand dans une fenetre. Sans JavaScript,
+   le lien ouvre simplement l'image. */
+function initApercu() {
+  const fenetre = document.querySelector(".lecteur--images");
+  const liens = document.querySelectorAll("[data-apercu]");
+  if (!fenetre || !liens.length || typeof fenetre.showModal !== "function") return;
+  const contenu = fenetre.querySelector(".visionneuse__contenu");
+  const titre = fenetre.querySelector("h2");
+  let origine = null;
+
+  liens.forEach((lien) => {
+    lien.addEventListener("click", (e) => {
+      e.preventDefault();
+      origine = lien;
+      let images;
+      try { images = JSON.parse(lien.dataset.images); }
+      catch { images = [{ src: lien.getAttribute("href"), alt: "" }]; }
+      // Construction sans innerHTML : uniquement des elements et du texte
+      contenu.replaceChildren(...images.map((im) => {
+        const figure = document.createElement("figure");
+        const img = document.createElement("img");
+        img.src = im.src;
+        img.alt = im.alt || "";
+        if (im.w) { img.width = im.w; img.height = im.h; }
+        img.decoding = "async";
+        figure.append(img);
+        if (im.legende) {
+          const legende = document.createElement("figcaption");
+          legende.textContent = im.legende;
+          figure.append(legende);
+        }
+        return figure;
+      }));
+      fenetre.dataset.nombre = String(images.length);
+      titre.textContent = lien.dataset.titre || "";
+      fenetre.showModal();
+      contenu.scrollTop = 0;
+    });
+  });
+  fenetre.querySelector("[data-visionneuse-fermer]").addEventListener("click", () => fenetre.close());
+  fenetre.addEventListener("click", (e) => { if (e.target === fenetre) fenetre.close(); });
+  fenetre.addEventListener("close", () => { if (origine) origine.focus(); });
+}
+
+/* ---------- Copier l'adresse e-mail ----------
+   Le lien mailto ouvre la messagerie par defaut de l'ordinateur, qui n'est
+   pas toujours configuree. Copier l'adresse marche dans tous les cas. */
+function initCopierAdresse() {
+  const bouton = document.querySelector("[data-copier]");
+  const adresse = document.querySelector("[data-adresse]");
+  const etat = document.querySelector("[data-copier-etat]");
+  if (!bouton || !adresse || !navigator.clipboard) return;
+  bouton.hidden = false;
+  bouton.addEventListener("click", () => {
+    navigator.clipboard.writeText(adresse.textContent.trim()).then(() => {
+      bouton.textContent = "Adresse copiée";
+      etat.textContent = "Adresse e-mail copiée dans le presse-papiers.";
+      setTimeout(() => {
+        bouton.textContent = "Copier l’adresse";
+        etat.textContent = "";
+      }, 2500);
+    });
+  });
+}
+
 initEnTete();
 initTriAccueil();
 initTriParticipants();
@@ -340,3 +406,5 @@ initOnglets();
 initSommaire();
 initDonneesAnimees();
 initVideo();
+initApercu();
+initCopierAdresse();

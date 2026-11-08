@@ -186,12 +186,18 @@
         </div>
         <ul class="autres">
           <li class="autre">
-            <img src="assets/img/flyer-recto.webp" width="700" height="1007" alt="Recto du flyer « Après-midi jeux » : date, horaires, lieu et photos de joueurs." loading="lazy">
+            <a class="apercu" href="assets/img/flyer-recto-grand.webp" data-apercu data-titre="Flyer « Après-midi jeux », recto et verso" data-images='[{"src": "assets/img/flyer-recto-grand.webp", "w": 1108, "h": 1594, "alt": "Recto du flyer « Après-midi jeux » : titre, date du 4 février 2026, lieu à l’IUT de Haguenau, photomontage de joueurs et QR code d’inscription.", "legende": "Recto"}, {"src": "assets/img/flyer-verso-grand.webp", "w": 1175, "h": 1639, "alt": "Verso du flyer : tarifs, présentation de l’association Jeux m’éclate, informations sur la demi-journée et contacts.", "legende": "Verso"}]' aria-haspopup="dialog">
+              <img src="assets/img/flyer-recto.webp" width="700" height="1007" alt="Voir en grand le flyer « Après-midi jeux », recto et verso" loading="lazy">
+              <span class="apercu__badge" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Agrandir</span>
+            </a>
             <h3>Flyer « Après-midi jeux »</h3>
             <p>Flyer A5 recto verso pour l’association Jeux m’éclate. Photomontage sur Photoshop, export pour l’impression et pour le web.</p>
           </li>
           <li class="autre">
-            <img src="assets/img/mha-accueil.webp" width="1200" height="744" alt="Page d’accueil du site de fans My Hero Academia, avec le choix de langue français ou italien." loading="lazy">
+            <a class="apercu" href="assets/img/mha-accueil.webp" data-apercu data-titre="Site My Hero Academia, page d’accueil" data-images='[{"src": "assets/img/mha-accueil.webp", "w": 1200, "h": 744, "alt": "Page d’accueil du site de fans My Hero Academia, avec le choix de langue français ou italien.", "legende": ""}]' aria-haspopup="dialog">
+              <img src="assets/img/mha-accueil.webp" width="1200" height="744" alt="Voir en grand la page d’accueil du site My Hero Academia" loading="lazy">
+              <span class="apercu__badge" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Agrandir</span>
+            </a>
             <h3>Site My Hero Academia</h3>
             <p>Un site bilingue français et italien. Les pages sont générées avec Twig à partir de fichiers de données.</p>
           </li>
@@ -248,7 +254,9 @@
           <a class="btn btn--contour" href="https://www.linkedin.com/in/aimanbelouanas">Mon profil LinkedIn</a>
           <a class="btn btn--contour" href="cv-aiman-belouanas.pdf">Télécharger mon CV</a>
         </div>
-        <p class="contact__mail">Adresse : aimanbelouanas@gmail.com</p>
+        <p class="contact__mail">Adresse : <span data-adresse>aimanbelouanas@gmail.com</span>
+          <button type="button" class="contact__copier" data-copier hidden>Copier l’adresse</button>
+          <span class="visually-hidden" aria-live="polite" data-copier-etat></span></p>
       </div>
     </section>
   </main>
@@ -270,6 +278,15 @@
       <source src="assets/video/court-metrage.mp4" type="video/mp4">
       Votre navigateur ne peut pas lire cette vidéo. <a href="assets/video/court-metrage.mp4">Ouvrir le fichier vidéo</a>.
     </video>
+  </dialog>
+
+  <!-- Visionneuse d'images : agrandit un travail visuel (flyer, capture) -->
+  <dialog class="lecteur lecteur--images" aria-labelledby="titre-visionneuse">
+    <div class="lecteur__tete">
+      <h2 id="titre-visionneuse">Aperçu</h2>
+      <button type="button" class="lecteur__fermer" data-visionneuse-fermer aria-label="Fermer l’aperçu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <div class="visionneuse__contenu"></div>
   </dialog>
 
   <script src="assets/js/main.js" defer></script>
