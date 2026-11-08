@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Aiman Belouanas, UX/UI designer</title>
+  <meta name="description" content="Portfolio d'Aiman Belouanas, étudiant UX/UI designer en BUT MMI à l'IUT de Haguenau. Recherche utilisateur, tri de cartes, tests, wireframes et intégration web.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='3' width='26' height='26' rx='2' fill='%23FFD54A' transform='rotate(-4 16 16)'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='16' text-anchor='middle' fill='%2315181F'%3EA%3C/text%3E%3C/svg%3E">
+  <link rel="preload" href="assets/fonts/bricolage-grotesque-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="index.html">Aiman Belouanas</a>
+      <nav class="nav" aria-label="Menu principal">
+        <a href="#projets">Projets</a>
+        <a href="#a-propos">À propos</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn--plein" href="cv-aiman-belouanas.pdf">Mon CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <!-- Accroche : le tri de cartes illustre ma façon de travailler -->
+    <section class="hero" aria-labelledby="titre-accueil">
+      <div class="wrap">
+        <div class="hero__texte">
+          <p class="statut">Disponible en stage du 12 avril au 25 juin 2027</p>
+          <h1 id="titre-accueil">Je transforme un tas de <span style="white-space:nowrap">post-its</span> en sites faciles à utiliser.</h1>
+          <p class="hero__intro">Étudiant en 2e année de BUT MMI à l’IUT de Haguenau, parcours UX design. J’écoute les utilisateurs, je teste mes idées avec eux, puis je conçois et je code des interfaces claires.</p>
+          <div class="hero__actions">
+            <a class="btn btn--plein" href="#projets">Voir mes projets</a>
+            <a class="btn btn--contour" href="#contact">Me contacter</a>
+          </div>
+        </div>
+
+        <figure>
+          <div class="board">
+            <div class="sorter is-pile" data-sorter="accueil">
+              <ul class="sorter__pile" aria-label="Cartes à classer">
+                <li class="note" data-id="cinema" style="--rot:-3deg">Cinéma</li>
+                <li class="note" data-id="salle" style="--rot:2deg">Salle de sport</li>
+                <li class="note" data-id="restaurant" style="--rot:-1.5deg">Restaurant</li>
+                <li class="note" data-id="parcs" style="--rot:4deg">Parcs</li>
+                <li class="note" data-id="bars" style="--rot:-4deg">Bars</li>
+                <li class="note" data-id="musee" style="--rot:1deg">Musée et exposition</li>
+                <li class="note" data-id="menu10" style="--rot:3deg">Menu à moins de 10 €</li>
+                <li class="note" data-id="exterieur" style="--rot:-2deg">Sport d’extérieur</li>
+                <li class="note" data-id="theatre" style="--rot:2.5deg">Théâtre</li>
+                <li class="note" data-id="boite" style="--rot:-1deg">Boîte de nuit</li>
+                <li class="note" data-id="assos" style="--rot:3.5deg">Associations sportives</li>
+                <li class="note" data-id="fastfood" style="--rot:-2.5deg">Fast food</li>
+              </ul>
+              <ul class="sorter__groupes" aria-label="Cartes classées par catégorie"></ul>
+            </div>
+          </div>
+          <figcaption class="board__legende">
+            <span>Un vrai tri de cartes : le classement d’un participant de mon projet Strasspot.</span>
+            <button class="board__bouton" type="button" data-trier>Trier les post-its</button>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Projets -->
+    <section class="section" id="projets" aria-labelledby="titre-projets">
+      <div class="wrap">
+        <div class="section__tete">
+          <h2 id="titre-projets">Projets</h2>
+          <p>Quatre projets de 1re année, avec ma démarche, mon rôle exact et ce que je referais autrement.</p>
+        </div>
+
+        <ul class="projets">
+          <li class="projet">
+            <figure class="couverture">
+              <div class="board">
+                <img src="assets/img/strasspot-cover.webp" width="1600" height="1515" alt="Maquette Figma de Strasspot : la fiche du restaurant Le Paname, avec son prix, ses avis et son adresse." style="view-transition-name: couverture-strasspot">
+              </div>
+              <p class="couverture__note"><strong>6 testeurs</strong>4 problèmes repérés grâce aux tests</p>
+            </figure>
+            <div class="projet__texte">
+              <h3><a href="strasspot.html">Strasspot</a></h3>
+              <p class="projet__resume">Un guide des bons plans à Strasbourg pour les étudiants. Des personas au tri de cartes, puis des tests avec 6 participants pour vérifier que le site se comprend sans aide.</p>
+              <dl class="meta">
+                <div><dt>Rôle</dt><dd>UX Designer</dd></div>
+                <div><dt>Équipe</dt><dd>6 étudiants</dd></div>
+                <div><dt>Date</dt><dd>Mars 2026</dd></div>
+              </dl>
+              <ul class="tags" aria-label="Méthodes et outils">
+                <li>Recherche utilisateur</li><li>Tri de cartes</li><li>Tests utilisateurs</li><li>Figma</li>
+              </ul>
+              <span class="lien-fleche" aria-hidden="true">Lire l’étude de cas</span>
+            </div>
+          </li>
+
+          <li class="projet">
+            <figure class="couverture">
+              <div class="board">
+                <img src="assets/img/zoo-cover.webp" width="1440" height="1000" alt="Page d’accueil du site ZooAtlas, guide du Parc zoologique et botanique de Mulhouse." style="view-transition-name: couverture-zooatlas" loading="lazy">
+              </div>
+              <p class="couverture__note"><strong>3 écrans</strong>Du wireframe au site responsive en ligne</p>
+            </figure>
+            <div class="projet__texte">
+              <h3><a href="zooatlas.html">ZooAtlas</a></h3>
+              <p class="projet__resume">Un guide du Parc zoologique et botanique de Mulhouse. Je l’ai conçu en wireframes sur trois tailles d’écran, puis codé seul en PHP et MySQL.</p>
+              <dl class="meta">
+                <div><dt>Rôle</dt><dd>Conception et code</dd></div>
+                <div><dt>Équipe</dt><dd>Seul</dd></div>
+                <div><dt>Date</dt><dd>Mai-juin 2026</dd></div>
+              </dl>
+              <ul class="tags" aria-label="Méthodes et outils">
+                <li>Wireframes</li><li>Responsive</li><li>PHP et Twig</li><li>MySQL</li>
+              </ul>
+              <span class="lien-fleche" aria-hidden="true">Lire l’étude de cas</span>
+            </div>
+          </li>
+
+          <li class="projet">
+            <figure class="couverture">
+              <div class="board">
+                <img src="assets/img/veillees-cover.webp" width="1500" height="844" alt="Première diapositive du pitch « Les Veillées d’Antan », un dîner immersif au Musée alsacien de Haguenau." style="view-transition-name: couverture-veillees" loading="lazy">
+              </div>
+              <p class="couverture__note"><strong>22 risques</strong>Anticipés en tant que chef de projet</p>
+            </figure>
+            <div class="projet__texte">
+              <h3><a href="veillees-dantan.html">Les Veillées d’Antan</a></h3>
+              <p class="projet__resume">Un dîner immersif pour faire vivre le Musée alsacien de Haguenau. J’ai mené l’audit, la stratégie de communication trilingue et la coordination d’une équipe de 7.</p>
+              <dl class="meta">
+                <div><dt>Rôle</dt><dd>Chef de projet</dd></div>
+                <div><dt>Équipe</dt><dd>7 étudiants</dd></div>
+                <div><dt>Date</dt><dd>Juin 2026</dd></div>
+              </dl>
+              <ul class="tags" aria-label="Méthodes et outils">
+                <li>Audit</li><li>Mapping concurrentiel</li><li>Personas</li><li>Gestion de projet</li>
+              </ul>
+              <span class="lien-fleche" aria-hidden="true">Lire l’étude de cas</span>
+            </div>
+          </li>
+
+          <li class="projet">
+            <figure class="couverture">
+              <div class="board">
+                <div class="couverture__visuel couverture__visuel--data" style="view-transition-name: couverture-kultuhr" role="img" aria-label="Graphique : les sorties culturelles dans le Bas-Rhin passent de l’indice 100 en 2015 à l’indice 80 en 2022.">
+                  <p style="font-weight:700">Sorties culturelles dans le Bas-Rhin</p>
+                  <div class="mini-barres" aria-hidden="true">
+                    <div class="barre"><span class="barre__annee">2015</span><div class="barre__piste"><div class="barre__valeur" style="--v:100%">100</div></div></div>
+                    <div class="barre barre--apres"><span class="barre__annee">2022</span><div class="barre__piste"><div class="barre__valeur" style="--v:80%">80</div></div></div>
+                  </div>
+                  <p style="font-size:var(--t-xs);color:var(--encre-douce)">Indice, base 100 en 2015. Source : INSEE.</p>
+                </div>
+              </div>
+              <p class="couverture__note"><strong>−20 %</strong>de sorties culturelles : le point de départ de l’audit</p>
+            </figure>
+            <div class="projet__texte">
+              <h3><a href="kultuhr.html">Kult’Uhr</a></h3>
+              <p class="projet__resume">Comprendre le public d’un futur festival en Nord Alsace grâce aux données de l’INSEE, puis construire une recommandation de communication en trois langues.</p>
+              <dl class="meta">
+                <div><dt>Rôle</dt><dd>Analyse et stratégie</dd></div>
+                <div><dt>Équipe</dt><dd>4 étudiants</dd></div>
+                <div><dt>Date</dt><dd>Octobre-décembre 2025</dd></div>
+              </dl>
+              <ul class="tags" aria-label="Méthodes et outils">
+                <li>Données INSEE</li><li>PESTEL</li><li>Personas</li><li>Plan de communication</li>
+              </ul>
+              <span class="lien-fleche" aria-hidden="true">Lire l’étude de cas</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Autres réalisations -->
+    <section class="section" style="padding-top:0" aria-labelledby="titre-autres">
+      <div class="wrap">
+        <div class="section__tete">
+          <h2 id="titre-autres">Autres réalisations</h2>
+          <p>Des projets plus courts, en graphisme, en vidéo et en développement.</p>
+        </div>
+        <ul class="autres">
+          <li class="autre">
+            <img src="assets/img/flyer-recto.webp" width="700" height="1007" alt="Recto du flyer « Après-midi jeux » : date, horaires, lieu et photos de joueurs." loading="lazy">
+            <h3>Flyer « Après-midi jeux »</h3>
+            <p>Flyer A5 recto verso pour l’association Jeux m’éclate. Photomontage sur Photoshop, export pour l’impression et pour le web.</p>
+          </li>
+          <li class="autre">
+            <img src="assets/img/mha-accueil.webp" width="1200" height="744" alt="Page d’accueil du site de fans My Hero Academia, avec le choix de langue français ou italien." loading="lazy">
+            <h3>Site My Hero Academia</h3>
+            <p>Un site bilingue français et italien. Les pages sont générées avec Twig à partir de fichiers de données.</p>
+          </li>
+          <li class="autre">
+            <a class="video" href="assets/video/court-metrage.mp4" data-video-ouvrir aria-haspopup="dialog">
+              <img class="video__image" src="assets/img/court-metrage.webp" width="1200" height="675" alt="" loading="lazy">
+              <span class="video__lecture" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+              <span class="video__texte">Regarder le court métrage<span class="video__duree">2 min 15</span></span>
+            </a>
+            <h3>Court métrage « La consultation »</h3>
+            <p>Un homme se rend à sa consultation dans un centre médico-psychologique. Tourné en équipe de 5 : j’étais à l’image, avec un cadrage pensé pour faire ressentir son stress. Le film aborde la santé mentale.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- À propos -->
+    <section class="section" id="a-propos" aria-labelledby="titre-apropos" style="background:var(--tableau)">
+      <div class="wrap apropos">
+        <div class="apropos__texte">
+          <h2 id="titre-apropos">À propos</h2>
+          <p>Je m’appelle Aiman. J’étudie en BUT Métiers du Multimédia et de l’Internet à l’IUT de Haguenau, dans le parcours stratégie de communication numérique et design d’expérience.</p>
+          <p>J’ai choisi l’UX design parce qu’une interface qui paraît simple demande en réalité beaucoup de réflexion. J’aime partir de ce que font vraiment les gens, puis le traduire en écrans clairs. Je sais aussi coder ce que je conçois, ce qui m’aide à parler le même langage que les développeurs.</p>
+          <p>En dehors des cours, j’ai travaillé un été comme agent de propreté urbaine, dès 5 h du matin et en binôme. Une bonne école de ponctualité et de travail d’équipe.</p>
+        </div>
+        <div class="boite-outils">
+          <div>
+            <h3>Concevoir</h3>
+            <ul><li>Figma</li><li>Miro</li><li>Photoshop</li><li>Illustrator</li></ul>
+          </div>
+          <div>
+            <h3>Coder</h3>
+            <ul><li>HTML et CSS</li><li>PHP et Twig</li><li>MySQL</li></ul>
+          </div>
+          <div>
+            <h3>Méthodes</h3>
+            <ul><li>Personas</li><li>Tri de cartes</li><li>Tests utilisateurs</li><li>Benchmark</li></ul>
+          </div>
+          <div>
+            <h3>Langues</h3>
+            <ul><li>Italien (langue maternelle)</li><li>Français (C2)</li><li>Anglais (A2+)</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact" aria-labelledby="titre-contact">
+      <div class="wrap">
+        <h2 id="titre-contact">Vous cherchez un stagiaire en UX/UI design ?</h2>
+        <p>Écrivez-moi, je réponds rapidement. Mon CV détaille mes projets et mes disponibilités.</p>
+        <div class="contact__liens">
+          <a class="btn btn--plein" href="mailto:aimanbelouanas@gmail.com">M’écrire un e-mail</a>
+          <a class="btn btn--contour" href="https://www.linkedin.com/in/aimanbelouanas">Mon profil LinkedIn</a>
+          <a class="btn btn--contour" href="cv-aiman-belouanas.pdf">Télécharger mon CV</a>
+        </div>
+        <p class="contact__mail">Adresse : aimanbelouanas@gmail.com</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Aiman Belouanas</p>
+      <p>Site conçu et codé par moi, sans modèle ni constructeur de site.</p>
+    </div>
+  </footer>
+
+  <!-- Lecteur vidéo : une fenêtre (dialog) qui s'ouvre par-dessus la page -->
+  <dialog class="lecteur" aria-labelledby="titre-video">
+    <div class="lecteur__tete">
+      <h2 id="titre-video">La consultation</h2>
+      <button type="button" class="lecteur__fermer" data-video-fermer aria-label="Fermer la vidéo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <video controls preload="none" playsinline poster="assets/img/court-metrage.webp" width="1280" height="720">
+      <source src="assets/video/court-metrage.mp4" type="video/mp4">
+      Votre navigateur ne peut pas lire cette vidéo. <a href="assets/video/court-metrage.mp4">Ouvrir le fichier vidéo</a>.
+    </video>
+  </dialog>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Strasspot, étude de cas UX | Aiman Belouanas</title>
+  <meta name="description" content="Étude de cas Strasspot : personas, tri de cartes et tests utilisateurs avec 6 participants pour un guide des bons plans étudiants à Strasbourg.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='3' width='26' height='26' rx='2' fill='%23FFD54A' transform='rotate(-4 16 16)'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='16' text-anchor='middle' fill='%2315181F'%3EA%3C/text%3E%3C/svg%3E">
+  <link rel="preload" href="assets/fonts/bricolage-grotesque-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <div class="progression" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="index.html">Aiman Belouanas</a>
+      <nav class="nav" aria-label="Menu principal">
+        <a href="index.html#projets">Projets</a>
+        <a href="index.html#a-propos">À propos</a>
+        <a href="index.html#contact">Contact</a>
+        <a class="btn btn--plein" href="cv-aiman-belouanas.pdf">Mon CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="cs-hero" aria-labelledby="titre-cas">
+      <div class="wrap">
+        <a class="retour" href="index.html#projets">Retour aux projets</a>
+        <h1 id="titre-cas">Strasspot</h1>
+        <p class="cs-hero__chapeau">Un guide des bons plans à Strasbourg, pensé pour les étudiants et testé avec eux. Mon premier vrai projet d’UX, mené en équipe de A à Z : de la recherche aux tests.</p>
+        <dl class="faits">
+          <div><dt>Mon rôle</dt><dd>UX Designer</dd></div>
+          <div><dt>Équipe</dt><dd>6 étudiants</dd></div>
+          <div><dt>Date</dt><dd>Mars 2026, SAÉ 201</dd></div>
+          <div><dt>Outils</dt><dd>Miro, Figma</dd></div>
+        </dl>
+        <figure class="cs-couverture">
+          <div class="board">
+            <img src="assets/img/strasspot-cover.webp" width="1600" height="1515" alt="Maquette de la fiche du restaurant Le Paname : prix, avis, lien vers le site et adresse." style="view-transition-name: couverture-strasspot">
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <div class="cs-corps">
+      <div class="wrap">
+        <nav class="sommaire" aria-label="Sommaire de l’étude de cas">
+          <p>Sommaire</p>
+          <ol>
+            <li><a href="#contexte">Le problème</a></li>
+            <li><a href="#role">Mon rôle</a></li>
+            <li><a href="#cadrage">Cadrer le projet</a></li>
+            <li><a href="#utilisateurs">Les utilisateurs</a></li>
+            <li><a href="#tri">Le tri de cartes</a></li>
+            <li><a href="#conception">Wireframes et maquettes</a></li>
+            <li><a href="#tests">Les tests</a></li>
+            <li><a href="#recommandations">Nos recommandations</a></li>
+            <li><a href="#bilan">Ce que j’en retiens</a></li>
+          </ol>
+        </nav>
+
+        <div class="contenu">
+          <section class="bloc" id="contexte" aria-labelledby="h-contexte">
+            <h2 id="h-contexte">Le problème</h2>
+            <p>Beaucoup d’étudiants passent à côté de ce que Strasbourg propose. Ils ont peu de budget et ne savent pas où chercher. Notre sujet : concevoir un site qui réunit les bons plans de la ville (restaurants, bars, sport, culture) à des prix adaptés aux étudiants.</p>
+            <p>La consigne imposait une vraie démarche de recherche : étudier les sites existants, définir les cibles, créer des personas, construire l’architecture du site, puis la tester.</p>
+          </section>
+
+          <section class="bloc" id="role" aria-labelledby="h-role">
+            <h2 id="h-role">Mon rôle</h2>
+            <p>J’étais UX Designer dans une équipe de 6. J’ai participé à toutes les étapes avec l’équipe : le cadrage, les cibles et les personas, le tri de cartes, les wireframes et les tests.</p>
+            <p>Pendant les tests, chacun avait une mission précise : accueillir les participants, prendre des notes, observer les émotions… La mienne était d’observer en silence, pour repérer les moments où les participants hésitaient.</p>
+          </section>
+
+          <section class="bloc" id="cadrage" aria-labelledby="h-cadrage">
+            <h2 id="h-cadrage">Cadrer le projet</h2>
+            <p>Nous avons d’abord étudié quatre sites proches de notre idée : MisterGoodBeer (les prix des bars), GetYourGuide (les activités par ville), Funbooker (la réservation d’activités) et Le Fooding (une sélection de restaurants). Aucun ne visait les étudiants, ni ne réunissait sorties, sport et culture au même endroit.</p>
+            <p>Nous avons ensuite fixé le périmètre : Strasbourg et ses alentours, des filtres par prix et par avis, une carte et un système de notes. Le paiement en ligne est resté en dehors du projet. Strasspot renvoie vers le site de chaque lieu.</p>
+          </section>
+
+          <section class="bloc" id="utilisateurs" aria-labelledby="h-utilisateurs">
+            <h2 id="h-utilisateurs">Les utilisateurs</h2>
+            <p>Au cœur de la cible : les étudiants de l’Université de Strasbourg. Autour d’eux, les 16-25 ans de la ville, puis les plus de 30 ans et les parents. Nous avons créé 5 proto-personas : des profils construits à partir de nos hypothèses, que les tests devaient ensuite confirmer ou corriger.</p>
+            <div class="personas">
+              <figure class="persona">
+                <blockquote>« Je veux profiter de Strasbourg sans me ruiner. »</blockquote>
+                <figcaption>Emeline, 19 ans, étudiante en BUT Info-Com. Elle ne connaît pas encore les bonnes adresses.</figcaption>
+              </figure>
+              <figure class="persona">
+                <blockquote>« Je cherche des endroits sympas pour la pause de midi et des endroits pour pratiquer mon sport. »</blockquote>
+                <figcaption>Noé, 21 ans, étudiant en STAPS. Il veut un site facile et efficace.</figcaption>
+              </figure>
+              <figure class="persona">
+                <blockquote>« Je veux pouvoir continuer de sortir dans Strasbourg, mais j’ai déjà vu beaucoup de choses et j’ai du mal à trouver le meilleur. »</blockquote>
+                <figcaption>Lucas, 24 ans, en master de droit. Il utilise son téléphone pour tout.</figcaption>
+              </figure>
+            </div>
+            <p>Les mêmes besoins revenaient : un budget limité, peu de temps pour chercher, et l’envie d’un site simple et rapide à consulter.</p>
+          </section>
+
+          <section class="bloc" id="tri" aria-labelledby="h-tri">
+            <h2 id="h-tri">Le tri de cartes</h2>
+            <p>Pour choisir les rubriques du site, nous avons demandé à plusieurs personnes de classer les mêmes cartes en groupes qui leur semblaient logiques. Comparez trois de leurs classements, et suivez la carte <strong>Cinéma</strong> :</p>
+            <figure>
+              <div class="segmented" role="group" aria-label="Choisir un participant">
+                <button type="button" data-participant="participant-1" aria-pressed="true">Participant 1</button>
+                <button type="button" data-participant="participant-2" aria-pressed="false">Participant 2</button>
+                <button type="button" data-participant="participant-3" aria-pressed="false">Participant 3</button>
+              </div>
+              <div class="board">
+                <div class="sorter" data-sorter="participants">
+                  <ul class="sorter__pile"></ul>
+                  <ul class="sorter__groupes">
+                    <li class="sorter__groupe"><p class="sorter__titre">Culture</p>
+                      <ul class="sorter__cartes">
+                        <li class="note" data-id="musee">Musée et exposition</li>
+                        <li class="note" data-id="opera">Opéra et spectacle</li>
+                        <li class="note" data-id="theatre">Théâtre</li>
+                        <li class="note note--cle" data-id="cinema">Cinéma</li>
+                      </ul></li>
+                    <li class="sorter__groupe"><p class="sorter__titre">Sorties musicales</p>
+                      <ul class="sorter__cartes">
+                        <li class="note" data-id="boite">Boîte de nuit</li>
+                        <li class="note" data-id="concerts">Concerts</li>
+                      </ul></li>
+                    <li class="sorter__groupe"><p class="sorter__titre">Sorties nature</p>
+                      <ul class="sorter__cartes">
+                        <li class="note" data-id="parcs">Parcs</li>
+                        <li class="note" data-id="rando">Randonnée</li>
+                      </ul></li>
+                    <li class="sorter__groupe"><p class="sorter__titre">Sport</p>
+                      <ul class="sorter__cartes">
+                        <li class="note" data-id="assos">Associations sportives</li>
+                        <li class="note" data-id="exterieur">Sport d’extérieur</li>
+                        <li class="note" data-id="salle">Salle de sport</li>
+                        <li class="note" data-id="interieur">Sport d’intérieur</li>
+                      </ul></li>
+                    <li class="sorter__groupe"><p class="sorter__titre">Nourriture</p>
+                      <ul class="sorter__cartes">
+                        <li class="note" data-id="restaurant">Restaurant</li>
+                        <li class="note" data-id="menu10">Menu à moins de 10 €</li>
+                        <li class="note" data-id="fastfood">Fast food</li>
+                        <li class="note" data-id="bars">Bars</li>
+                      </ul></li>
+                  </ul>
+                </div>
+              </div>
+              <p class="visually-hidden" aria-live="polite" data-annonce-tri></p>
+              <figcaption style="margin-top:0.75rem">Classements recopiés de notre tableau Miro. Jaune : les catégories inventées par le participant. Vert : les cartes à classer.</figcaption>
+            </figure>
+            <p>Le même cinéma finit dans « Culture », « Soirées » ou « Activité » selon la personne. Aucun classement n’était évident : c’est exactement ce que les tests allaient confirmer.</p>
+          </section>
+
+          <section class="bloc" id="conception" aria-labelledby="h-conception">
+            <h2 id="h-conception">Wireframes et maquettes</h2>
+            <p>Nous avons d’abord posé la structure en wireframes sur Figma : l’accueil, une page par catégorie, puis la fiche de chaque lieu. Chaque fiche réunit ce qu’il faut pour décider vite : le prix, les avis, le lien vers le site et l’adresse.</p>
+            <figure class="figure">
+              <div class="compare" style="--pos:50%">
+                <img src="assets/img/strasspot-wireframe-fiche.webp" width="1400" height="1326" alt="Wireframe de la fiche d’un lieu : une image à gauche, le texte et un bouton à droite." loading="lazy">
+                <div class="compare__apres">
+                  <img src="assets/img/strasspot-maquette-fiche.webp" width="1400" height="1326" alt="Maquette finale de la même fiche : le restaurant Le Paname, avec son prix, ses avis, son site et son adresse." loading="lazy">
+                </div>
+                <span class="compare__etiquette compare__etiquette--avant">Wireframe</span>
+                <span class="compare__etiquette compare__etiquette--apres">Maquette</span>
+                <input type="range" min="0" max="100" value="50" aria-label="Comparer le wireframe et la maquette : faites glisser pour révéler la maquette">
+                <span class="compare__ligne" aria-hidden="true"></span>
+                <span class="compare__poignee" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6-6 6 6 6"/><path d="m15 6 6 6-6 6"/></svg></span>
+              </div>
+              <figcaption>Faites glisser le curseur : la même fiche, du wireframe à la maquette finale.</figcaption>
+            </figure>
+            <figure class="figure">
+              <img src="assets/img/strasspot-wireframes.webp" width="1800" height="756" alt="Les trois wireframes : l’accueil, une page de catégorie et la fiche d’un lieu." loading="lazy">
+              <figcaption>Les trois gabarits de pages en wireframe : accueil, catégorie et fiche.</figcaption>
+            </figure>
+          </section>
+
+          <section class="bloc" id="tests" aria-labelledby="h-tests">
+            <h2 id="h-tests">Les tests</h2>
+            <p>Six étudiants ont testé notre prototype. Chacun recevait la même mission, sans aide :</p>
+            <p class="mission">« Ouvre la fiche du cinéma Vox, trouve son adresse sur Google Maps, puis crée-toi un compte. »</p>
+            <p>Le concept a été bien compris, et la plupart ont trouvé la création de compte grâce à l’icône en forme de personnage. Mais quatre problèmes sont revenus :</p>
+            <ul class="constats">
+              <li><strong>Le cinéma n’était pas à sa place</strong><span>Plusieurs testeurs l’ont cherché dans « Culture ». Il était rangé dans « Divertissement ». Un participant a été surpris de ne pas le trouver en culture.</span></li>
+              <li><strong>Des boutons trop semblables</strong><span>Les boutons des catégories se ressemblaient tous. Difficile de les distinguer d’un coup d’œil.</span></li>
+              <li><strong>Un lien Maps trop discret</strong><span>Certains cliquaient sur le site du lieu au lieu de l’adresse, puis cherchaient la carte.</span></li>
+              <li><strong>Deux façons de naviguer</strong><span>Les moins à l’aise passaient par le menu. Les autres faisaient défiler la page d’accueil.</span></li>
+            </ul>
+          </section>
+
+          <section class="bloc" id="recommandations" aria-labelledby="h-recommandations">
+            <h2 id="h-recommandations">Nos recommandations</h2>
+            <p>La consigne ne demandait pas de modifier les maquettes. Il fallait analyser les retours et défendre les changements à l’oral, lors d’une soutenance au format réunion. Nous avons proposé de :</p>
+            <ol>
+              <li>renommer les catégories avec les mots des utilisateurs, et placer le cinéma dans « Culture » ;</li>
+              <li>différencier visuellement les boutons des catégories ;</li>
+              <li>rendre le lien vers l’adresse plus visible que le lien vers le site ;</li>
+              <li>mieux guider l’utilisateur dès la page d’accueil, pour ceux qui défilent comme pour ceux qui utilisent le menu.</li>
+            </ol>
+            <div class="figure" style="display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))">
+              <figure class="figure">
+                <img src="assets/img/strasspot-sport.webp" width="1000" height="1149" alt="Maquette de la catégorie Sport : une barre de recherche et des lieux présentés avec photo." loading="lazy">
+                <figcaption>La catégorie Sport.</figcaption>
+              </figure>
+              <figure class="figure">
+                <img src="assets/img/strasspot-compte.webp" width="1000" height="992" alt="Maquette de la création de compte, en plusieurs étapes." loading="lazy">
+                <figcaption>La création de compte, en plusieurs étapes.</figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section class="bloc" id="bilan" aria-labelledby="h-bilan">
+            <h2 id="h-bilan">Ce que j’en retiens</h2>
+            <p>J’ai compris que concevoir pour quelqu’un demande de mettre ses propres préférences de côté. Le classement qui nous semblait logique ne l’était pas pour les testeurs.</p>
+            <h3>Ce que je ferais autrement</h3>
+            <ul>
+              <li>Tester plus tôt et plus souvent : des retours tardifs obligent à refaire des wireframes.</li>
+              <li>Vérifier le contraste des maquettes : certains petits textes jaunes et orange sur fond vert sont difficiles à lire.</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <section class="suivant" aria-label="Projet suivant">
+      <div class="wrap">
+        <div>
+          <p>Projet suivant</p>
+          <h2><a href="zooatlas.html">ZooAtlas</a></h2>
+        </div>
+        <a class="btn btn--plein" href="zooatlas.html">Lire l’étude de cas</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Aiman Belouanas</p>
+      <p><a href="index.html">Retour à l’accueil</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>ZooAtlas, du wireframe au site | Aiman Belouanas</title>
+  <meta name="description" content="Étude de cas ZooAtlas : wireframes sur trois tailles d'écran, puis un site responsive codé en PHP, Twig et MySQL pour le Parc zoologique et botanique de Mulhouse.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='3' width='26' height='26' rx='2' fill='%23FFD54A' transform='rotate(-4 16 16)'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='16' text-anchor='middle' fill='%2315181F'%3EA%3C/text%3E%3C/svg%3E">
+  <link rel="preload" href="assets/fonts/bricolage-grotesque-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <div class="progression" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="index.html">Aiman Belouanas</a>
+      <nav class="nav" aria-label="Menu principal">
+        <a href="index.html#projets">Projets</a>
+        <a href="index.html#a-propos">À propos</a>
+        <a href="index.html#contact">Contact</a>
+        <a class="btn btn--plein" href="cv-aiman-belouanas.pdf">Mon CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="cs-hero" aria-labelledby="titre-cas">
+      <div class="wrap">
+        <a class="retour" href="index.html#projets">Retour aux projets</a>
+        <h1 id="titre-cas">ZooAtlas</h1>
+        <p class="cs-hero__chapeau">Un guide du Parc zoologique et botanique de Mulhouse. Je l’ai conçu en wireframes sur trois tailles d’écran, puis codé seul, de la base de données à la mise en ligne.</p>
+        <dl class="faits">
+          <div><dt>Mon rôle</dt><dd>Conception et code</dd></div>
+          <div><dt>Équipe</dt><dd>Seul</dd></div>
+          <div><dt>Date</dt><dd>Mai-juin 2026, SAÉ 203</dd></div>
+          <div><dt>Outils</dt><dd>Figma, PHP, Twig, MySQL</dd></div>
+        </dl>
+        <figure class="cs-couverture">
+          <div class="board">
+            <img src="assets/img/zoo-cover.webp" width="1440" height="1000" alt="Page d’accueil du site ZooAtlas : bannière de bienvenue, présentation du parc et événements." style="view-transition-name: couverture-zooatlas">
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <div class="cs-corps">
+      <div class="wrap">
+        <nav class="sommaire" aria-label="Sommaire de l’étude de cas">
+          <p>Sommaire</p>
+          <ol>
+            <li><a href="#contexte">Le problème</a></li>
+            <li><a href="#wireframes">Trois tailles d’écran</a></li>
+            <li><a href="#donnees">Les données</a></li>
+            <li><a href="#realisation">Du wireframe au site</a></li>
+            <li><a href="#responsive">Le site sur chaque écran</a></li>
+            <li><a href="#securite">Sécurité et mise en ligne</a></li>
+            <li><a href="#bilan">Ce que j’en retiens</a></li>
+          </ol>
+        </nav>
+
+        <div class="contenu">
+          <section class="bloc" id="contexte" aria-labelledby="h-contexte">
+            <h2 id="h-contexte">Le problème</h2>
+            <p>Le sujet demandait un vrai site touristique, alimenté par une base de données. J’ai choisi le Parc zoologique et botanique de Mulhouse, qui réunit trois univers : les animaux, les jardins et les métiers du parc.</p>
+            <p>Le défi : présenter beaucoup de contenus (des fiches longues, avec des noms scientifiques) sans perdre le visiteur, que ce soit sur un ordinateur ou sur un téléphone dans les allées du parc.</p>
+            <dl class="chiffres">
+              <div><dt>15</dt><dd>espèces animales</dd></div>
+              <div><dt>6</dt><dd>jardins remarquables</dd></div>
+              <div><dt>12</dt><dd>métiers du parc</dd></div>
+              <div><dt>5</dt><dd>tables dans la base</dd></div>
+            </dl>
+          </section>
+
+          <section class="bloc" id="wireframes" aria-labelledby="h-wireframes">
+            <h2 id="h-wireframes">Trois tailles d’écran</h2>
+            <p>J’ai dessiné les quatre gabarits du site (accueil, catégorie, fiche et contact) en trois tailles : ordinateur, tablette et téléphone. Décider dès le wireframe comment chaque page se réorganise m’a évité de « bricoler » le responsive à la fin.</p>
+            <figure class="figure">
+              <img src="assets/img/zoo-wireframes-3-tailles.webp" width="1800" height="981" alt="Wireframes de la page catégorie en trois tailles : trois colonnes de vignettes sur ordinateur, deux sur tablette, une sur téléphone, avec un menu burger." loading="lazy">
+              <figcaption>La page catégorie : 3 colonnes de vignettes sur ordinateur, 2 sur tablette, 1 sur téléphone.</figcaption>
+            </figure>
+          </section>
+
+          <section class="bloc" id="donnees" aria-labelledby="h-donnees">
+            <h2 id="h-donnees">Les données</h2>
+            <p>Toutes les fiches viennent d’une base MySQL. Je l’ai modélisée en 5 tables. La relation entre les animaux et les continents permet de filtrer les animaux par continent, un besoin concret pour un visiteur qui prépare sa balade.</p>
+            <div class="tables" role="img" aria-label="Schéma de la base : la table animaux est reliée à la table continents par id_continent. Les tables plantes, métiers et contacts sont indépendantes.">
+              <div class="table-bd"><p>animaux</p><ul><li class="cle">id_animal</li><li>nom</li><li>nom_scientifique</li><li>statut</li><li class="cle">id_continent</li></ul></div>
+              <div class="table-bd"><p>continents</p><ul><li class="cle">id_continent</li><li>nom_continent</li></ul></div>
+              <div class="table-bd"><p>plantes</p><ul><li class="cle">id_plante</li><li>nom</li><li>origine</li><li>type_plante</li></ul></div>
+              <div class="table-bd"><p>metiers</p><ul><li class="cle">id_metier</li><li>nom</li><li>formation</li><li>domaine</li></ul></div>
+              <div class="table-bd"><p>contacts</p><ul><li class="cle">id_contact</li><li>nom</li><li>email</li><li>message</li></ul></div>
+            </div>
+            <p>Côté code, Twig sépare l’affichage des données : un seul gabarit de base, réutilisé par toutes les pages, et une boucle qui génère chaque vignette.</p>
+          </section>
+
+          <section class="bloc" id="realisation" aria-labelledby="h-realisation">
+            <h2 id="h-realisation">Du wireframe au site</h2>
+            <p>Le site final suit fidèlement le wireframe : la bannière, l’image et les informations clés côte à côte, puis la description et le bouton de retour.</p>
+            <figure class="figure">
+              <div class="compare" style="--pos:50%">
+                <img src="assets/img/zoo-wireframe-fiche.webp" width="1400" height="1147" alt="Wireframe de la fiche d’un animal : bannière de titre, image et informations principales, description longue, bouton de retour." loading="lazy">
+                <div class="compare__apres">
+                  <img src="assets/img/zoo-site-fiche.webp" width="1400" height="1147" alt="Fiche du panda roux sur le site final : bannière verte, photo, tableau continent, durée de vie et statut, puis description." loading="lazy">
+                </div>
+                <span class="compare__etiquette compare__etiquette--avant">Wireframe</span>
+                <span class="compare__etiquette compare__etiquette--apres">Site codé</span>
+                <input type="range" min="0" max="100" value="50" aria-label="Comparer le wireframe et le site codé : faites glisser pour révéler le site">
+                <span class="compare__ligne" aria-hidden="true"></span>
+                <span class="compare__poignee" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6-6 6 6 6"/><path d="m15 6 6 6-6 6"/></svg></span>
+              </div>
+              <figcaption>Faites glisser le curseur : la fiche du panda roux, du wireframe au site codé.</figcaption>
+            </figure>
+          </section>
+
+          <section class="bloc" id="responsive" aria-labelledby="h-responsive">
+            <h2 id="h-responsive">Le site sur chaque écran</h2>
+            <p>Deux points de rupture (960 et 600 pixels) suffisent : les vignettes passent de 3 à 2 puis à 1 colonne, et le menu devient un bouton burger sur téléphone. Choisissez un écran, puis faites défiler la page à l’intérieur.</p>
+            <div class="ecrans">
+              <div class="ecrans__onglets" role="tablist" aria-label="Taille d’écran">
+                <button type="button" role="tab" id="onglet-ordi" aria-selected="true" aria-controls="ecran-ordi">Ordinateur</button>
+                <button type="button" role="tab" id="onglet-tablette" aria-selected="false" aria-controls="ecran-tablette" tabindex="-1">Tablette</button>
+                <button type="button" role="tab" id="onglet-mobile" aria-selected="false" aria-controls="ecran-mobile" tabindex="-1">Téléphone</button>
+              </div>
+              <div class="ecrans__scene">
+                <div role="tabpanel" id="ecran-ordi" aria-labelledby="onglet-ordi" class="appareil appareil--desktop">
+                  <div class="appareil__ecran" tabindex="0" aria-label="Page des animaux sur ordinateur, zone défilante"><img src="assets/img/zoo-animaux-desktop.webp" width="1440" height="2923" alt="Page des animaux sur ordinateur : filtres par continent et vignettes sur trois colonnes." loading="lazy"></div>
+                </div>
+                <div role="tabpanel" id="ecran-tablette" aria-labelledby="onglet-tablette" class="appareil appareil--tablette" hidden>
+                  <div class="appareil__ecran" tabindex="0" aria-label="Page des animaux sur tablette, zone défilante"><img src="assets/img/zoo-animaux-tablette.webp" width="834" height="4030" alt="Page des animaux sur tablette : vignettes sur deux colonnes." loading="lazy"></div>
+                </div>
+                <div role="tabpanel" id="ecran-mobile" aria-labelledby="onglet-mobile" class="appareil appareil--mobile" hidden>
+                  <div class="appareil__ecran" tabindex="0" aria-label="Page des animaux sur téléphone, zone défilante"><img src="assets/img/zoo-animaux-mobile.webp" width="600" height="10182" alt="Page des animaux sur téléphone : menu burger et vignettes sur une colonne." loading="lazy"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="bloc" id="securite" aria-labelledby="h-securite">
+            <h2 id="h-securite">Sécurité et mise en ligne</h2>
+            <p>Toutes les requêtes passent par des requêtes préparées PDO, et les identifiants reçus dans l’adresse sont convertis en nombres : un visiteur ne peut pas injecter de code SQL. Le formulaire de contact enregistre les messages dans la base, puis redirige pour éviter un double envoi si l’on actualise la page.</p>
+            <p>Le site a été mis en ligne sur deux serveurs, avec des pages d’erreur 403 et 404 personnalisées.</p>
+          </section>
+
+          <section class="bloc" id="bilan" aria-labelledby="h-bilan">
+            <h2 id="h-bilan">Ce que j’en retiens</h2>
+            <p>Par rapport à mon premier site en Twig, j’ai franchi une étape : une vraie base de données, des requêtes sécurisées et une mise en ligne. Concevoir d’abord en wireframes m’a fait gagner beaucoup de temps au moment de coder.</p>
+            <h3>Ce que je corrigerais aujourd’hui</h3>
+            <ul>
+              <li>L’accessibilité : il manque un titre de niveau 1 sur chaque page, et le menu burger n’est pas utilisable au clavier.</li>
+              <li>Les images : elles sont déformées par une hauteur fixe. Il suffit d’ajouter <code>object-fit: cover</code>.</li>
+              <li>Les erreurs : une fiche qui n’existe pas devrait mener à la page 404, au lieu d’une page vide.</li>
+              <li>La typographie : le site s’affiche avec la police par défaut du navigateur. Une vraie police renforcerait l’identité du parc.</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <section class="suivant" aria-label="Projet suivant">
+      <div class="wrap">
+        <div>
+          <p>Projet suivant</p>
+          <h2><a href="veillees-dantan.html">Les Veillées d’Antan</a></h2>
+        </div>
+        <a class="btn btn--plein" href="veillees-dantan.html">Lire l’étude de cas</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Aiman Belouanas</p>
+      <p><a href="index.html">Retour à l’accueil</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
