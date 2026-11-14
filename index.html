@@ -6,11 +6,12 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Aiman Belouanas, UX/UI designer</title>
-  <meta name="description" content="Portfolio d'Aiman Belouanas, étudiant UX/UI designer en BUT MMI à l'IUT de Haguenau. Recherche utilisateur, tri de cartes, tests, wireframes et intégration web.">
+  <meta name="description" content="Portfolio d'Aiman Belouanas, étudiant UX/UI designer en BUT MMI à l'IUT de Haguenau. Recherche utilisateur, tri de cartes, tests, wireframes et maquettes Figma.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='3' width='26' height='26' rx='2' fill='%23FFD54A' transform='rotate(-4 16 16)'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='16' text-anchor='middle' fill='%2315181F'%3EA%3C/text%3E%3C/svg%3E">
   <link rel="preload" href="assets/fonts/bricolage-grotesque-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/pre.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -31,11 +32,12 @@
 
     <!-- Accroche : le tri de cartes illustre ma façon de travailler -->
     <section class="hero" aria-labelledby="titre-accueil">
+      <canvas class="hero__scene" data-scene="accueil" aria-hidden="true"></canvas>
       <div class="wrap">
         <div class="hero__texte">
           <p class="statut">Disponible en stage du 12 avril au 25 juin 2027</p>
           <h1 id="titre-accueil">Je transforme un tas de <span style="white-space:nowrap">post-its</span> en sites faciles à utiliser.</h1>
-          <p class="hero__intro">Étudiant en 2e année de BUT MMI à l’IUT de Haguenau, parcours UX design. J’écoute les utilisateurs, je teste mes idées avec eux, puis je conçois et je code des interfaces claires.</p>
+          <p class="hero__intro">Étudiant en 2e année de BUT MMI à l’IUT de Haguenau, parcours UX design. J’écoute les utilisateurs, je teste mes idées avec eux, puis je conçois des interfaces claires.</p>
           <div class="hero__actions">
             <a class="btn btn--plein" href="#projets">Voir mes projets</a>
             <a class="btn btn--contour" href="#contact">Me contacter</a>
@@ -75,14 +77,35 @@
       <div class="wrap">
         <div class="section__tete">
           <h2 id="titre-projets">Projets</h2>
-          <p>Quatre projets de 1re année, avec ma démarche, mon rôle exact et ce que je referais autrement.</p>
+          <p>Cinq projets, dont un pour un vrai client. Pour chacun : ma démarche, mon rôle exact et ce que je referais autrement.</p>
         </div>
 
         <ul class="projets">
           <li class="projet">
             <figure class="couverture">
               <div class="board">
-                <img src="assets/img/strasspot-cover.webp" width="1600" height="1515" alt="Maquette Figma de Strasspot : la fiche du restaurant Le Paname, avec son prix, ses avis et son adresse." style="view-transition-name: couverture-strasspot">
+                <img src="assets/img/eh-cover.webp" width="1600" height="1000" alt="Trois des onze visuels LinkedIn de la campagne de l’École d’Hiver 2027 : l’annonce, le rappel J-8 et l’ouverture des inscriptions." style="view-transition-name: couverture-ecole">
+              </div>
+              <p class="couverture__note"><strong>11 publications</strong>conçues pour un vrai client</p>
+            </figure>
+            <div class="projet__texte">
+              <h3><a href="ecole-dhiver.html">École d’Hiver 2027</a></h3>
+              <p class="projet__resume">La communication d’un séminaire pour les doctorants d’Alsace, pour le Pôle universitaire d’innovation Alsace. J’ai piloté le projet, puis conçu la page web et les 11 publications LinkedIn.</p>
+              <dl class="meta">
+                <div><dt>Rôle</dt><dd>Chef de projet, UX/UI</dd></div>
+                <div><dt>Équipe</dt><dd>4 étudiants</dd></div>
+                <div><dt>Date</dt><dd>Octobre-novembre 2026</dd></div>
+              </dl>
+              <ul class="tags" aria-label="Méthodes et outils">
+                <li>Wireframes</li><li>Maquettes</li><li>Charte éditoriale</li><li>Gestion de projet</li><li>Figma</li>
+              </ul>
+              <span class="lien-fleche" aria-hidden="true">Lire l’étude de cas</span>
+            </div>
+          </li>
+          <li class="projet">
+            <figure class="couverture">
+              <div class="board">
+                <img src="assets/img/strasspot-cover.webp" width="1600" height="1515" alt="Maquette Figma de Strasspot : la fiche du restaurant Le Paname, avec son prix, ses avis et son adresse." style="view-transition-name: couverture-strasspot" loading="lazy">
               </div>
               <p class="couverture__note"><strong>6 testeurs</strong>4 problèmes repérés grâce aux tests</p>
             </figure>
@@ -202,13 +225,9 @@
             <p>Un site bilingue français et italien. Les pages sont générées avec Twig à partir de fichiers de données.</p>
           </li>
           <li class="autre">
-            <a class="video" href="assets/video/court-metrage.mp4" data-video-ouvrir aria-haspopup="dialog">
-              <img class="video__image" src="assets/img/court-metrage.webp" width="1200" height="675" alt="" loading="lazy">
-              <span class="video__lecture" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
-              <span class="video__texte">Regarder le court métrage<span class="video__duree">2 min 15</span></span>
-            </a>
+            <img src="assets/img/court-metrage.webp" width="1200" height="675" alt="Image floutée du court métrage : deux personnes face à face, de part et d’autre d’une table." loading="lazy">
             <h3>Court métrage « La consultation »</h3>
-            <p>Un homme se rend à sa consultation dans un centre médico-psychologique. Tourné en équipe de 5 : j’étais à l’image, avec un cadrage pensé pour faire ressentir son stress. Le film aborde la santé mentale.</p>
+            <p>Un homme se rend à sa consultation dans un centre médico-psychologique. Tourné en équipe de 5 : j’étais à l’image, avec un cadrage pensé pour faire ressentir son stress. Le film aborde la santé mentale. Le film n’est pas diffusé ici et l’image est floutée : je n’ai pas le droit de montrer les personnes filmées.</p>
           </li>
         </ul>
       </div>
@@ -220,7 +239,7 @@
         <div class="apropos__texte">
           <h2 id="titre-apropos">À propos</h2>
           <p>Je m’appelle Aiman. J’étudie en BUT Métiers du Multimédia et de l’Internet à l’IUT de Haguenau, dans le parcours stratégie de communication numérique et design d’expérience.</p>
-          <p>J’ai choisi l’UX design parce qu’une interface qui paraît simple demande en réalité beaucoup de réflexion. J’aime partir de ce que font vraiment les gens, puis le traduire en écrans clairs. Je sais aussi coder ce que je conçois, ce qui m’aide à parler le même langage que les développeurs.</p>
+          <p>J’ai choisi l’UX design parce qu’une interface qui paraît simple demande en réalité beaucoup de réflexion. J’aime partir de ce que font vraiment les gens, puis le traduire en écrans clairs. Je connais aussi les bases du code, ce qui m’aide à parler le même langage que les développeurs.</p>
           <p>En dehors des cours, j’ai travaillé un été comme agent de propreté urbaine, dès 5 h du matin et en binôme. Une bonne école de ponctualité et de travail d’équipe.</p>
         </div>
         <div class="boite-outils">
@@ -229,7 +248,7 @@
             <ul><li>Figma</li><li>Miro</li><li>Photoshop</li><li>Illustrator</li></ul>
           </div>
           <div>
-            <h3>Coder</h3>
+            <h3>Bases du code</h3>
             <ul><li>HTML et CSS</li><li>PHP et Twig</li><li>MySQL</li></ul>
           </div>
           <div>
@@ -244,8 +263,17 @@
       </div>
     </section>
 
+    <!-- Bandeau : ma methode en cinq verbes (decoratif, lu une seule fois par les lecteurs d'ecran) -->
+    <div class="bandeau">
+      <p class="visually-hidden">Ma méthode : écouter, trier, maquetter, tester, recommencer.</p>
+      <div class="bandeau__piste" aria-hidden="true">
+        <span>Écouter</span><span>Trier</span><span>Maquetter</span><span>Tester</span><span>Recommencer</span>
+      </div>
+    </div>
+
     <!-- Contact -->
     <section class="contact" id="contact" aria-labelledby="titre-contact">
+      <canvas class="contact__scene" data-scene="contact" aria-hidden="true"></canvas>
       <div class="wrap">
         <h2 id="titre-contact">Vous cherchez un stagiaire en UX/UI design ?</h2>
         <p>Écrivez-moi, je réponds rapidement. Mon CV détaille mes projets et mes disponibilités.</p>
@@ -264,21 +292,9 @@
   <footer class="site-footer">
     <div class="wrap">
       <p>© 2026 Aiman Belouanas</p>
-      <p>Site conçu et codé par moi, sans modèle ni constructeur de site.</p>
+      <p>Site conçu par moi et codé à la main, sans constructeur de site. Animations : GSAP, Lenis et three.js.</p>
     </div>
   </footer>
-
-  <!-- Lecteur vidéo : une fenêtre (dialog) qui s'ouvre par-dessus la page -->
-  <dialog class="lecteur" aria-labelledby="titre-video">
-    <div class="lecteur__tete">
-      <h2 id="titre-video">La consultation</h2>
-      <button type="button" class="lecteur__fermer" data-video-fermer aria-label="Fermer la vidéo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
-    </div>
-    <video controls preload="none" playsinline poster="assets/img/court-metrage.webp" width="1280" height="720">
-      <source src="assets/video/court-metrage.mp4" type="video/mp4">
-      Votre navigateur ne peut pas lire cette vidéo. <a href="assets/video/court-metrage.mp4">Ouvrir le fichier vidéo</a>.
-    </video>
-  </dialog>
 
   <!-- Visionneuse d'images : agrandit un travail visuel (flyer, capture) -->
   <dialog class="lecteur lecteur--images" aria-labelledby="titre-visionneuse">
@@ -286,9 +302,14 @@
       <h2 id="titre-visionneuse">Aperçu</h2>
       <button type="button" class="lecteur__fermer" data-visionneuse-fermer aria-label="Fermer l’aperçu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
     </div>
-    <div class="visionneuse__contenu"></div>
+    <div class="visionneuse__contenu" data-lenis-prevent></div>
   </dialog>
 
+  <script src="assets/js/vendor/gsap.min.js" defer></script>
+  <script src="assets/js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/js/vendor/SplitText.min.js" defer></script>
+  <script src="assets/js/vendor/lenis.min.js" defer></script>
   <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/anim.js" defer></script>
 </body>
 </html>

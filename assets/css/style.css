@@ -522,10 +522,15 @@ figcaption { font-size: var(--t-xs); color: var(--encre-douce); max-width: var(-
    ========================================================================== */
 @media (prefers-reduced-motion: no-preference) {
   @view-transition { navigation: auto; }
-  ::view-transition-group(*) { animation-duration: 0.5s; animation-timing-function: var(--courbe); }
-  ::view-transition-old(root) { animation: 0.25s ease-out both sortie; }
-  ::view-transition-new(root) { animation: 0.35s 0.05s var(--courbe) both entree; }
+  ::view-transition-group(*) { animation-duration: 0.7s; animation-timing-function: var(--courbe); }
+  /* Le rideau : l'ancienne page file vers le haut, le fond post-it apparait,
+     puis la nouvelle page monte par-dessus. L'en-tete et la couverture restent en place. */
+  ::view-transition { background: var(--postit); }
+  ::view-transition-old(root) { animation: 0.45s cubic-bezier(0.7, 0, 0.3, 1) both rideau-sortie; }
+  ::view-transition-new(root) { animation: 0.6s 0.22s cubic-bezier(0.2, 0.8, 0.2, 1) both rideau-entree; }
 }
+@keyframes rideau-sortie { to { transform: translateY(-100%); } }
+@keyframes rideau-entree { from { transform: translateY(100%); } }
 @keyframes sortie { to { opacity: 0; } }
 @keyframes entree { from { opacity: 0; transform: translateY(12px); } }
 
@@ -682,3 +687,174 @@ figcaption { font-size: var(--t-xs); color: var(--encre-douce); max-width: var(-
   font: inherit; font-size: var(--t-xs); font-weight: 700; cursor: pointer;
 }
 .contact__copier:hover { background: rgba(255, 255, 255, 0.12); }
+
+/* ==========================================================================
+   Animations (GSAP, Lenis, three.js) et etude de cas "Ecole d'Hiver"
+   ========================================================================== */
+
+/* Lenis : defilement adouci (regles fournies par la bibliotheque) */
+html.lenis, html.lenis body { height: auto; }
+.lenis:not(.lenis-autoToggle).lenis-stopped { overflow: clip; }
+.lenis [data-lenis-prevent], .lenis [data-lenis-prevent-touch] { overscroll-behavior: contain; }
+
+/* Avant l'animation d'entree : on masque le haut de page une fraction de seconde
+   (classe posee par pre.js, retiree dans tous les cas au bout de 2,5 s) */
+.anim .hero__texte > *, .anim .hero figure, .anim .cs-hero .wrap > * { visibility: hidden; }
+/* Titres decoupes en lignes : un peu d'air pour ne pas couper les jambages */
+.ligne-mask { padding-bottom: 0.12em; margin-bottom: -0.12em; }
+.site-header { will-change: transform; }
+
+/* --- Bandeau "methode" --- */
+.bandeau { overflow: hidden; border-block: 1px solid var(--trait); background: var(--papier); padding-block: clamp(1rem, 2.5vw, 1.75rem); }
+.bandeau__piste {
+  display: flex; width: max-content; white-space: nowrap; will-change: transform;
+  font-family: var(--f-titre); font-stretch: 82%; font-weight: 760; line-height: 1;
+  font-size: clamp(2.5rem, 1.5rem + 5.5vw, 6rem); letter-spacing: -0.02em; color: var(--encre);
+}
+.bandeau__piste span { display: inline-flex; align-items: center; }
+.bandeau__piste span::after {
+  content: ""; width: 0.42em; height: 0.42em; margin-inline: 0.42em; border-radius: 3px;
+  background: var(--postit); box-shadow: var(--ombre-note); transform: rotate(-8deg);
+}
+.bandeau__piste span:nth-child(even)::after { background: var(--postit-vert); transform: rotate(6deg); }
+.bandeau__piste span:nth-child(odd) { color: transparent; -webkit-text-stroke: 1.5px var(--encre); }
+
+/* --- Contact : les post-its en 3D passent derriere le texte --- */
+.contact { position: relative; overflow: hidden; }
+.contact .wrap { position: relative; z-index: 1; }
+.contact__scene {
+  position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;
+  opacity: 0; transition: opacity 1.2s ease-out;
+  -webkit-mask-image: linear-gradient(to right, transparent 8%, #000 52%);
+  mask-image: linear-gradient(to right, transparent 8%, #000 52%);
+}
+.contact__scene.is-prete { opacity: 1; }
+@media (max-width: 760px) {
+  .contact__scene { -webkit-mask-image: none; mask-image: none; }
+  .contact__scene.is-prete { opacity: 0.28; }
+}
+
+/* --- Etude de cas en deux blocs, separes par la campagne en pleine largeur --- */
+.cs-corps--suite .wrap { padding-top: clamp(3.5rem, 7vw, 5rem); }
+.note-droits { font-size: var(--t-xs); color: var(--encre-douce); }
+.figure--equipe { max-width: 34rem; }
+
+/* --- La campagne LinkedIn : une frise horizontale aux couleurs du client --- */
+.defile { background: #171719; color: #F4F4F0; overflow: hidden; }
+.defile__cadre {
+  min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: center;
+  gap: clamp(1rem, 2.5vh, 1.75rem); padding-block: clamp(2.5rem, 6vh, 4.5rem);
+}
+.defile__tete, .defile__ligne {
+  width: 100%; max-width: var(--largeur); margin-inline: auto; padding-inline: var(--gouttiere);
+}
+.defile__tete { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 0.5rem 2rem; }
+.defile__titre {
+  font-family: var(--f-titre); font-stretch: 88%; font-weight: 720; line-height: 1.05; letter-spacing: -0.015em;
+  font-size: var(--t-xl); grid-column: 1;
+}
+.defile__aide { grid-column: 1; display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; color: #B9BCC4; font-size: var(--t-s); }
+.defile__compteur {
+  font-variant-numeric: tabular-nums; font-weight: 700; color: #171719; background: #FFFF13;
+  padding: 0.2rem 0.6rem; border-radius: 2px;
+}
+.defile__flocons { grid-column: 2; grid-row: 1 / span 2; display: flex; align-items: center; gap: 0.25rem; }
+.flocon { width: clamp(2.25rem, 5vw, 3.75rem); height: auto; will-change: transform; }
+.flocon--rose { color: #F40A86; }
+.flocon--jaune { color: #FFFF13; width: clamp(1.75rem, 4vw, 3rem); align-self: flex-start; }
+.flocon--orange { color: #FF6F00; width: clamp(1.5rem, 3.5vw, 2.5rem); align-self: flex-end; }
+
+.defile__fenetre { overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: thin; scrollbar-color: #5B6070 transparent; }
+.defile__fenetre:focus-visible { outline: 3px solid #FFFF13; outline-offset: -3px; }
+.defile__liste {
+  display: flex; gap: clamp(1rem, 2vw, 1.75rem); width: max-content; list-style: none; margin: 0;
+  padding: 0.5rem max(var(--gouttiere), calc((100vw - var(--largeur)) / 2 + var(--gouttiere)));
+  will-change: transform;
+}
+.post { width: min(21rem, 36vh, 78vw); min-width: 13.5rem; scroll-snap-align: center; }
+.post figure { display: flex; flex-direction: column; gap: 0.85rem; }
+.post img { width: 100%; border-radius: 6px; box-shadow: 0 24px 40px -28px #000; }
+.post figcaption {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0.15rem 0.7rem; align-items: baseline;
+  color: #B9BCC4; font-size: var(--t-xs); line-height: 1.4; max-width: none;
+}
+.post__num { grid-row: 1 / span 3; font-family: var(--f-titre); font-stretch: 82%; font-weight: 760; font-size: 2rem; line-height: 1; color: #F40A86; font-variant-numeric: tabular-nums; }
+.post:nth-child(3n+2) .post__num { color: #FFFF13; }
+.post:nth-child(3n) .post__num { color: #FF6F00; }
+.post__date { font-weight: 700; color: #F4F4F0; }
+.post figcaption strong { font-family: var(--f-titre); font-stretch: 90%; font-size: 1.15rem; line-height: 1.2; color: #F4F4F0; }
+.defile__ligne { height: 3px; }
+.defile__ligne::before, .defile__ligne span { content: ""; display: block; height: 3px; border-radius: 3px; }
+.defile__ligne { position: relative; }
+.defile__ligne::before { background: #3A3D47; }
+.defile__ligne span { background: #FFFF13; margin-top: -3px; transform-origin: 0 50%; transform: scaleX(0); }
+
+/* Grand ecran avec souris : la section se fixe et les publications avancent avec le defilement */
+.defile.is-epingle .defile__cadre { height: 100vh; min-height: 0; }
+.defile.is-epingle .defile__fenetre { overflow: visible; }
+
+@media (max-width: 960px) {
+  .sommaire-vide { display: none; }
+}
+@media (max-width: 600px) {
+  .defile__cadre { min-height: 0; }
+  .defile__flocons { grid-row: 1; }
+  .defile__aide { grid-column: 1 / -1; }
+}
+
+/* --- Rideau de changement de page, pour les navigateurs sans View Transitions --- */
+.rideau { position: fixed; inset: 0; z-index: 1000; background: var(--postit); visibility: hidden; pointer-events: none; }
+html.rideau-entree::after {
+  content: ""; position: fixed; inset: 0; z-index: 1000; background: var(--postit); pointer-events: none;
+  transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1);
+}
+html.rideau-entree.rideau-sortie::after { transform: translateY(-100%); }
+
+/* --- Accueil : les post-its en 3D tombent autour du texte et du tableau --- */
+.hero { position: relative; overflow: clip; padding-bottom: clamp(6.5rem, 10vw, 8.5rem); }
+.hero .wrap { position: relative; z-index: 1; }
+.hero__scene {
+  position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;
+  opacity: 0; transition: opacity 0.5s ease-out;
+}
+.hero__scene.is-prete { opacity: 1; }
+@media (max-width: 760px) { .hero__scene.is-prete { opacity: 0.75; } }
+
+/* --- Frise des publications : un peu de profondeur --- */
+.post figure { will-change: transform; backface-visibility: hidden; }
+
+/* --- Referencement : les textes avant / apres, en vrai texte (lisible sur telephone) --- */
+.avant-apres { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; max-width: 46rem; }
+.avant-apres li {
+  display: grid; gap: 0.35rem; padding: 1rem 1.15rem; background: var(--blanc);
+  border: 1px solid var(--trait); border-radius: 12px;
+}
+.avant-apres h4 { font-size: var(--t-xs); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--encre-douce); margin: 0; }
+.avant-apres p { margin: 0; max-width: none; line-height: 1.45; }
+.aa__avant { color: var(--encre-douce); font-size: var(--t-s); }
+.aa__apres { font-weight: 600; }
+.aa__tag {
+  display: inline-block; min-width: 3.4rem; margin-right: 0.6rem; font-size: var(--t-xs); font-weight: 700;
+  color: var(--encre-douce);
+}
+.aa__apres .aa__tag { color: var(--encre); }
+.avant-apres mark { background: var(--postit); color: inherit; padding: 0.05em 0.25em; border-radius: 3px; }
+
+/* --- Capture a lire en grand : sur petit ecran, elle garde une taille lisible et defile a l'horizontale --- */
+.figure--capture { max-width: 46rem; }
+.figure--capture .apercu { border: 1px solid var(--trait); overflow: hidden; }
+.lecteur--large { width: min(96rem, 96vw); }
+.lecteur--large .visionneuse__contenu { display: block; overflow: auto; }
+.lecteur--large .visionneuse__contenu figure { display: block; }
+.lecteur--large .visionneuse__contenu img { display: block; width: max(100%, 66rem); max-width: none; max-height: none; height: auto; }
+/* Sur telephone, la capture est masquee : le texte au-dessus dit deja tout, en lisible */
+@media (max-width: 600px) { .figure--capture { display: none; } }
+
+/* Sur telephone, les etiquettes et la poignee des comparaisons prennent moins de place sur l'image */
+@media (max-width: 600px) {
+  .compare__etiquette { top: 0.4rem; font-size: 0.6875rem; padding: 0.15rem 0.5rem; }
+  .compare__etiquette--avant { left: 0.4rem; }
+  .compare__etiquette--apres { right: 0.4rem; }
+  .compare__poignee { width: 38px; height: 38px; margin: -19px 0 0 -19px; }
+  .compare__poignee svg { width: 18px; height: 18px; }
+}

@@ -11,6 +11,7 @@
   <link rel="preload" href="assets/fonts/bricolage-grotesque-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/pre.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -128,13 +129,13 @@
               </div>
               <div class="ecrans__scene">
                 <div role="tabpanel" id="ecran-ordi" aria-labelledby="onglet-ordi" class="appareil appareil--desktop">
-                  <div class="appareil__ecran" tabindex="0" aria-label="Page des animaux sur ordinateur, zone défilante"><img src="assets/img/zoo-animaux-desktop.webp" width="1440" height="2923" alt="Page des animaux sur ordinateur : filtres par continent et vignettes sur trois colonnes." loading="lazy"></div>
+                  <div class="appareil__ecran" tabindex="0" data-lenis-prevent aria-label="Page des animaux sur ordinateur, zone défilante"><img src="assets/img/zoo-animaux-desktop.webp" width="1440" height="2923" alt="Page des animaux sur ordinateur : filtres par continent et vignettes sur trois colonnes." loading="lazy"></div>
                 </div>
                 <div role="tabpanel" id="ecran-tablette" aria-labelledby="onglet-tablette" class="appareil appareil--tablette" hidden>
-                  <div class="appareil__ecran" tabindex="0" aria-label="Page des animaux sur tablette, zone défilante"><img src="assets/img/zoo-animaux-tablette.webp" width="834" height="4030" alt="Page des animaux sur tablette : vignettes sur deux colonnes." loading="lazy"></div>
+                  <div class="appareil__ecran" tabindex="0" data-lenis-prevent aria-label="Page des animaux sur tablette, zone défilante"><img src="assets/img/zoo-animaux-tablette.webp" width="834" height="4030" alt="Page des animaux sur tablette : vignettes sur deux colonnes." loading="lazy"></div>
                 </div>
                 <div role="tabpanel" id="ecran-mobile" aria-labelledby="onglet-mobile" class="appareil appareil--mobile" hidden>
-                  <div class="appareil__ecran" tabindex="0" aria-label="Page des animaux sur téléphone, zone défilante"><img src="assets/img/zoo-animaux-mobile.webp" width="600" height="10182" alt="Page des animaux sur téléphone : menu burger et vignettes sur une colonne." loading="lazy"></div>
+                  <div class="appareil__ecran" tabindex="0" data-lenis-prevent aria-label="Page des animaux sur téléphone, zone défilante"><img src="assets/img/zoo-animaux-mobile.webp" width="600" height="10182" alt="Page des animaux sur téléphone : menu burger et vignettes sur une colonne." loading="lazy"></div>
                 </div>
               </div>
             </div>
@@ -179,6 +180,11 @@
     </div>
   </footer>
 
+  <script src="assets/js/vendor/gsap.min.js" defer></script>
+  <script src="assets/js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/js/vendor/SplitText.min.js" defer></script>
+  <script src="assets/js/vendor/lenis.min.js" defer></script>
   <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/anim.js" defer></script>
 </body>
 </html>

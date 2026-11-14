@@ -11,6 +11,7 @@
   <link rel="preload" href="assets/fonts/bricolage-grotesque-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/pre.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -108,7 +109,10 @@
             <h2 id="h-concept">Le concept</h2>
             <p>Un dîner hebdomadaire qui fait revivre l’Alsace du XIXe siècle. Pendant 3 heures, les visiteurs suivent une visite guidée trilingue, dégustent des plats de saison servis dans de la poterie alsacienne, écoutent des musiciens locaux et sont accueillis par un personnel en costume d’époque. Tous les produits viennent de fermes situées à moins de 10 km.</p>
             <figure class="figure">
-              <img src="assets/img/veillees-concept.webp" width="1400" height="788" alt="Diapositive « The Concept » : visite guidée, dîner traditionnel, costumes d’époque, musique folk, produits locaux et menu qui change chaque semaine." loading="lazy">
+              <a class="apercu" href="assets/img/veillees-concept.webp" data-apercu data-titre="Le concept des Veillées d’Antan, diapositive du pitch" data-images='[{"src": "assets/img/veillees-concept.webp", "w": 1400, "h": 788, "alt": "Diapositive « The Concept » : visite guidée, dîner traditionnel, costumes d’époque, musique folk, produits locaux et menu qui change chaque semaine."}]' aria-haspopup="dialog">
+                <img src="assets/img/veillees-concept.webp" width="1400" height="788" alt="Voir en grand la diapositive « The Concept » : visite guidée, dîner traditionnel, costumes d’époque, musique folk, produits locaux et menu qui change chaque semaine." loading="lazy">
+                <span class="apercu__badge" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Agrandir</span>
+              </a>
               <figcaption>Le concept, tel que présenté dans notre pitch en anglais.</figcaption>
             </figure>
           </section>
@@ -222,6 +226,20 @@
     </video>
   </dialog>
 
+  <!-- Visionneuse d'images : une diapositive a lire en grand -->
+  <dialog class="lecteur lecteur--images lecteur--large" aria-labelledby="titre-visionneuse">
+    <div class="lecteur__tete">
+      <h2 id="titre-visionneuse">Aperçu</h2>
+      <button type="button" class="lecteur__fermer" data-visionneuse-fermer aria-label="Fermer l’aperçu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <div class="visionneuse__contenu" data-lenis-prevent tabindex="0"></div>
+  </dialog>
+
+  <script src="assets/js/vendor/gsap.min.js" defer></script>
+  <script src="assets/js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/js/vendor/SplitText.min.js" defer></script>
+  <script src="assets/js/vendor/lenis.min.js" defer></script>
   <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/anim.js" defer></script>
 </body>
 </html>
