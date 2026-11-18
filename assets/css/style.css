@@ -877,12 +877,11 @@ html.rideau-entree.rideau-sortie::after { transform: translateY(-100%); }
 /* Contact : la recherche de stage, dite clairement juste sous le titre */
 .contact__stage { font-size: var(--t-m); font-weight: 600; max-width: 40ch; }
 .statut { max-width: none; }
-/* Petit ecran : la pastille passe proprement sur deux lignes, sans couper le lieu */
-.statut__sep { white-space: pre; }
-@media (min-width: 521px) { .statut__sep, .statut__suite { margin-left: -0.6rem; } }
-@media (max-width: 520px) {
-  .statut { display: grid; grid-template-columns: auto 1fr; column-gap: 0.6rem; border-radius: 16px; padding-block: 0.45rem; }
-  .statut::before { grid-row: 1 / span 2; align-self: center; }
-  .statut__sep { display: none; }
-  .statut__suite { font-weight: 500; color: var(--encre-douce); }
-}
+/* La pastille : la recherche en haut, les dates et le lieu en dessous, sur tous les ecrans */
+.hero__texte { container: hero-texte / inline-size; }
+.statut { display: grid; grid-template-columns: auto 1fr; column-gap: 0.6rem; border-radius: 16px; padding-block: 0.45rem; }
+.statut::before { grid-row: 1 / span 2; align-self: center; }
+.statut__sep { display: none; }
+.statut__suite { font-weight: 500; color: var(--encre-douce); }
+.statut > span { white-space: nowrap; }
+@container hero-texte (max-width: 330px) { .statut > span { white-space: normal; } }
