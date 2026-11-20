@@ -30,6 +30,12 @@
   <div class="progression" aria-hidden="true"></div>
 
   <header class="site-header">
+    <div class="barre-stage">
+      <div class="wrap">
+        <p><span class="barre-stage__point" aria-hidden="true"></span><strong>Je cherche un stage en UX/UI</strong><span class="barre-stage__detail"> · 8 à 11 semaines, d’avril à juin 2027 · Strasbourg et alentours</span></p>
+        <a class="barre-stage__lien" href="index.html#contact">Me contacter</a>
+      </div>
+    </div>
     <div class="wrap">
       <a class="logo" href="index.html">Aiman Belouanas</a>
       <nav class="nav" aria-label="Menu principal">
@@ -53,6 +59,14 @@
           <div><dt>Date</dt><dd>Mai-juin 2026, SAÉ 203</dd></div>
           <div><dt>Outils</dt><dd>Figma, PHP, Twig, MySQL</dd></div>
         </dl>
+        <div class="en-bref">
+          <h2 class="en-bref__titre">En bref</h2>
+          <dl>
+            <div><dt>Le problème</dt><dd>Présenter beaucoup de contenus, avec des fiches longues et des noms scientifiques, sans perdre le visiteur, même sur un téléphone dans les allées du parc.</dd></div>
+            <div><dt>Ce que j’ai fait</dt><dd>Seul : les wireframes des 4 gabarits en trois tailles d’écran, puis le site, de la base de données à la mise en ligne.</dd></div>
+            <div><dt>Le résultat</dt><dd>Un site en ligne, lisible sur ordinateur, tablette et téléphone, avec 15 espèces, 6 jardins et 12 métiers.</dd></div>
+          </dl>
+        </div>
         <figure class="cs-couverture">
           <div class="board">
             <img src="assets/img/zoo-cover.webp" width="1440" height="1000" alt="Page d’accueil du site ZooAtlas : bannière de bienvenue, présentation du parc et événements." style="view-transition-name: couverture-zooatlas">
@@ -71,7 +85,7 @@
             <li><a href="#donnees">Les données</a></li>
             <li><a href="#realisation">Du wireframe au site</a></li>
             <li><a href="#responsive">Le site sur chaque écran</a></li>
-            <li><a href="#securite">Sécurité et mise en ligne</a></li>
+            <li><a href="#securite">La mise en ligne</a></li>
             <li><a href="#bilan">Ce que j’en retiens</a></li>
           </ol>
         </nav>
@@ -96,6 +110,10 @@
               <img src="assets/img/zoo-wireframes-3-tailles.webp" width="1800" height="981" alt="Wireframes de la page catégorie en trois tailles : trois colonnes de vignettes sur ordinateur, deux sur tablette, une sur téléphone, avec un menu burger." loading="lazy">
               <figcaption>La page catégorie : 3 colonnes de vignettes sur ordinateur, 2 sur tablette, 1 sur téléphone.</figcaption>
             </figure>
+            <aside class="decision" aria-label="Ma décision clé">
+              <p class="decision__titre">Ma décision clé</p>
+              <p><strong>Décider dès le wireframe comment chaque page se réorganise sur trois écrans.</strong> Le responsive était pensé avant la première ligne de code. Je n’ai pas eu à le « bricoler » à la fin, et le site final suit fidèlement les wireframes.</p>
+            </aside>
           </section>
 
           <section class="bloc" id="donnees" aria-labelledby="h-donnees">
@@ -141,22 +159,21 @@
               </div>
               <div class="ecrans__scene">
                 <div role="tabpanel" id="ecran-ordi" aria-labelledby="onglet-ordi" class="appareil appareil--desktop">
-                  <div class="appareil__ecran" tabindex="0" data-lenis-prevent aria-label="Page des animaux sur ordinateur, zone défilante"><img src="assets/img/zoo-animaux-desktop.webp" width="1440" height="2923" alt="Page des animaux sur ordinateur : filtres par continent et vignettes sur trois colonnes." loading="lazy"></div>
+                  <div class="appareil__ecran" tabindex="0" aria-label="Page des animaux sur ordinateur, zone défilante"><img src="assets/img/zoo-animaux-desktop.webp" width="1440" height="2923" alt="Page des animaux sur ordinateur : filtres par continent et vignettes sur trois colonnes." loading="lazy"></div>
                 </div>
                 <div role="tabpanel" id="ecran-tablette" aria-labelledby="onglet-tablette" class="appareil appareil--tablette" hidden>
-                  <div class="appareil__ecran" tabindex="0" data-lenis-prevent aria-label="Page des animaux sur tablette, zone défilante"><img src="assets/img/zoo-animaux-tablette.webp" width="834" height="4030" alt="Page des animaux sur tablette : vignettes sur deux colonnes." loading="lazy"></div>
+                  <div class="appareil__ecran" tabindex="0" aria-label="Page des animaux sur tablette, zone défilante"><img src="assets/img/zoo-animaux-tablette.webp" width="834" height="4030" alt="Page des animaux sur tablette : vignettes sur deux colonnes." loading="lazy"></div>
                 </div>
                 <div role="tabpanel" id="ecran-mobile" aria-labelledby="onglet-mobile" class="appareil appareil--mobile" hidden>
-                  <div class="appareil__ecran" tabindex="0" data-lenis-prevent aria-label="Page des animaux sur téléphone, zone défilante"><img src="assets/img/zoo-animaux-mobile.webp" width="600" height="10182" alt="Page des animaux sur téléphone : menu burger et vignettes sur une colonne." loading="lazy"></div>
+                  <div class="appareil__ecran" tabindex="0" aria-label="Page des animaux sur téléphone, zone défilante"><img src="assets/img/zoo-animaux-mobile.webp" width="600" height="10182" alt="Page des animaux sur téléphone : menu burger et vignettes sur une colonne." loading="lazy"></div>
                 </div>
               </div>
             </div>
           </section>
 
           <section class="bloc" id="securite" aria-labelledby="h-securite">
-            <h2 id="h-securite">Sécurité et mise en ligne</h2>
-            <p>Toutes les requêtes passent par des requêtes préparées PDO, et les identifiants reçus dans l’adresse sont convertis en nombres : un visiteur ne peut pas injecter de code SQL. Le formulaire de contact enregistre les messages dans la base, puis redirige pour éviter un double envoi si l’on actualise la page.</p>
-            <p>Le site a été mis en ligne sur deux serveurs, avec des pages d’erreur 403 et 404 personnalisées.</p>
+            <h2 id="h-securite">La mise en ligne</h2>
+            <p>Le site a été mis en ligne, avec des requêtes sécurisées et des pages d’erreur personnalisées.</p>
           </section>
 
           <section class="bloc" id="bilan" aria-labelledby="h-bilan">
@@ -173,6 +190,17 @@
         </div>
       </div>
     </div>
+
+    <section class="appel-stage" aria-labelledby="titre-appel">
+      <div class="wrap">
+        <h2 id="titre-appel">Ce travail vous parle ?</h2>
+        <p>Je cherche un stage en UX/UI design de 8 à 11 semaines, entre le 12 avril et le 25 juin 2027, à Strasbourg ou aux alentours.</p>
+        <div class="appel-stage__actions">
+          <a class="btn btn--plein" href="mailto:aimanbelouanas@gmail.com">M’écrire un e-mail</a>
+          <a class="btn btn--contour" href="cv-aiman-belouanas.pdf">Voir mon CV</a>
+        </div>
+      </div>
+    </section>
 
     <section class="suivant" aria-label="Projet suivant">
       <div class="wrap">
@@ -195,7 +223,6 @@
   <script src="assets/js/vendor/gsap.min.js" defer></script>
   <script src="assets/js/vendor/ScrollTrigger.min.js" defer></script>
   <script src="assets/js/vendor/SplitText.min.js" defer></script>
-  <script src="assets/js/vendor/lenis.min.js" defer></script>
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/anim.js" defer></script>
 </body>

@@ -162,15 +162,16 @@ strong { font-weight: 700; }
 .hero__texte { display: flex; flex-direction: column; gap: 1.5rem; }
 .hero__intro { font-size: var(--t-l); line-height: 1.5; color: var(--encre-douce); max-width: 34rem; }
 .statut {
-  display: inline-flex; align-items: center; gap: 0.6rem; align-self: flex-start;
-  font-weight: 600; font-size: var(--t-s);
-  padding: 0.35rem 0.9rem 0.35rem 0.7rem; border-radius: 999px;
-  background: var(--blanc); border: 1px solid var(--trait);
+  display: flex; align-items: center; gap: 0.9rem; align-self: stretch; max-width: 34rem;
+  padding: 0.9rem 1.1rem; border-radius: 14px;
+  background: #E8F6EE; border: 1.5px solid #1E9E5A;
 }
-.statut::before {
-  content: ""; width: 0.6rem; height: 0.6rem; border-radius: 50%;
-  background: #1E9E5A; box-shadow: 0 0 0 4px rgba(30, 158, 90, 0.18);
+.statut__point {
+  flex: none; width: 0.75rem; height: 0.75rem; border-radius: 50%;
+  background: #1E9E5A; box-shadow: 0 0 0 5px rgba(30, 158, 90, 0.2);
 }
+.statut strong { display: block; font-size: var(--t-m); line-height: 1.3; }
+.statut__detail { display: block; font-size: var(--t-s); color: var(--encre-douce); margin-top: 0.15rem; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 
 /* --- Le tableau à post-its (composant réutilisé : accueil + Strasspot) --- */
@@ -522,15 +523,10 @@ figcaption { font-size: var(--t-xs); color: var(--encre-douce); max-width: var(-
    ========================================================================== */
 @media (prefers-reduced-motion: no-preference) {
   @view-transition { navigation: auto; }
-  ::view-transition-group(*) { animation-duration: 0.7s; animation-timing-function: var(--courbe); }
-  /* Le rideau : l'ancienne page file vers le haut, le fond post-it apparait,
-     puis la nouvelle page monte par-dessus. L'en-tete et la couverture restent en place. */
-  ::view-transition { background: var(--postit); }
-  ::view-transition-old(root) { animation: 0.45s cubic-bezier(0.7, 0, 0.3, 1) both rideau-sortie; }
-  ::view-transition-new(root) { animation: 0.6s 0.22s cubic-bezier(0.2, 0.8, 0.2, 1) both rideau-entree; }
+  ::view-transition-group(*) { animation-duration: 0.4s; animation-timing-function: var(--courbe); }
+  ::view-transition-old(root) { animation: 0.15s ease-out both sortie; }
+  ::view-transition-new(root) { animation: 0.25s ease-out both entree; }
 }
-@keyframes rideau-sortie { to { transform: translateY(-100%); } }
-@keyframes rideau-entree { from { transform: translateY(100%); } }
 @keyframes sortie { to { opacity: 0; } }
 @keyframes entree { from { opacity: 0; transform: translateY(12px); } }
 
@@ -692,10 +688,6 @@ figcaption { font-size: var(--t-xs); color: var(--encre-douce); max-width: var(-
    Animations (GSAP, Lenis, three.js) et etude de cas "Ecole d'Hiver"
    ========================================================================== */
 
-/* Lenis : defilement adouci (regles fournies par la bibliotheque) */
-html.lenis, html.lenis body { height: auto; }
-.lenis:not(.lenis-autoToggle).lenis-stopped { overflow: clip; }
-.lenis [data-lenis-prevent], .lenis [data-lenis-prevent-touch] { overscroll-behavior: contain; }
 
 /* Avant l'animation d'entree : on masque le haut de page une fraction de seconde
    (classe posee par pre.js, retiree dans tous les cas au bout de 2,5 s) */
@@ -704,35 +696,7 @@ html.lenis, html.lenis body { height: auto; }
 .ligne-mask { padding-bottom: 0.12em; margin-bottom: -0.12em; }
 .site-header { will-change: transform; }
 
-/* --- Bandeau "methode" --- */
-.bandeau { overflow: hidden; border-block: 1px solid var(--trait); background: var(--papier); padding-block: clamp(1rem, 2.5vw, 1.75rem); }
-.bandeau__piste {
-  display: flex; width: max-content; white-space: nowrap; will-change: transform;
-  font-family: var(--f-titre); font-stretch: 82%; font-weight: 760; line-height: 1;
-  font-size: clamp(2.5rem, 1.5rem + 5.5vw, 6rem); letter-spacing: -0.02em; color: var(--encre);
-}
-.bandeau__piste span { display: inline-flex; align-items: center; }
-.bandeau__piste span::after {
-  content: ""; width: 0.42em; height: 0.42em; margin-inline: 0.42em; border-radius: 3px;
-  background: var(--postit); box-shadow: var(--ombre-note); transform: rotate(-8deg);
-}
-.bandeau__piste span:nth-child(even)::after { background: var(--postit-vert); transform: rotate(6deg); }
-.bandeau__piste span:nth-child(odd) { color: transparent; -webkit-text-stroke: 1.5px var(--encre); }
 
-/* --- Contact : les post-its en 3D passent derriere le texte --- */
-.contact { position: relative; overflow: hidden; }
-.contact .wrap { position: relative; z-index: 1; }
-.contact__scene {
-  position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;
-  opacity: 0; transition: opacity 1.2s ease-out;
-  -webkit-mask-image: linear-gradient(to right, transparent 8%, #000 52%);
-  mask-image: linear-gradient(to right, transparent 8%, #000 52%);
-}
-.contact__scene.is-prete { opacity: 1; }
-@media (max-width: 760px) {
-  .contact__scene { -webkit-mask-image: none; mask-image: none; }
-  .contact__scene.is-prete { opacity: 0.28; }
-}
 
 /* --- Etude de cas en deux blocs, separes par la campagne en pleine largeur --- */
 .cs-corps--suite .wrap { padding-top: clamp(3.5rem, 7vw, 5rem); }
@@ -802,26 +766,8 @@ html.lenis, html.lenis body { height: auto; }
   .defile__aide { grid-column: 1 / -1; }
 }
 
-/* --- Rideau de changement de page, pour les navigateurs sans View Transitions --- */
-.rideau { position: fixed; inset: 0; z-index: 1000; background: var(--postit); visibility: hidden; pointer-events: none; }
-html.rideau-entree::after {
-  content: ""; position: fixed; inset: 0; z-index: 1000; background: var(--postit); pointer-events: none;
-  transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1);
-}
-html.rideau-entree.rideau-sortie::after { transform: translateY(-100%); }
 
-/* --- Accueil : les post-its en 3D tombent autour du texte et du tableau --- */
-.hero { position: relative; overflow: clip; padding-bottom: clamp(6.5rem, 10vw, 8.5rem); }
-.hero .wrap { position: relative; z-index: 1; }
-.hero__scene {
-  position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;
-  opacity: 0; transition: opacity 0.5s ease-out;
-}
-.hero__scene.is-prete { opacity: 1; }
-@media (max-width: 760px) { .hero__scene.is-prete { opacity: 0.75; } }
 
-/* --- Frise des publications : un peu de profondeur --- */
-.post figure { will-change: transform; backface-visibility: hidden; }
 
 /* --- Referencement : les textes avant / apres, en vrai texte (lisible sur telephone) --- */
 .avant-apres { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; max-width: 46rem; }
@@ -876,15 +822,37 @@ html.rideau-entree.rideau-sortie::after { transform: translateY(-100%); }
 
 /* Contact : la recherche de stage, dite clairement juste sous le titre */
 .contact__stage { font-size: var(--t-m); font-weight: 600; max-width: 40ch; }
-/* La pastille tient toujours sur une ligne : texte complet, ou plus court si la colonne est etroite */
-.hero__texte { container: hero-texte / inline-size; }
-.statut { white-space: nowrap; }
-.statut__moyen, .statut__court { display: none; }
-@container hero-texte (max-width: 380px) {
-  .statut__long { display: none; }
-  .statut__moyen { display: inline; }
-}
-@container hero-texte (max-width: 345px) {
-  .statut__moyen { display: none; }
-  .statut__court { display: inline; }
-}
+
+.barre-stage { background: var(--encre); color: var(--blanc); font-size: var(--t-xs); }
+.barre-stage .wrap { display: flex; align-items: center; justify-content: center; gap: 0.4rem 1rem; padding-block: 0.5rem; flex-wrap: wrap; text-align: center; }
+.barre-stage p { margin: 0; max-width: none; }
+.barre-stage__point { display: inline-block; width: 0.55rem; height: 0.55rem; border-radius: 50%; background: #4ADE80; margin-right: 0.5rem; vertical-align: 0.05em; }
+.barre-stage__lien { color: var(--postit); font-weight: 700; text-decoration: underline; text-underline-offset: 0.18em; white-space: nowrap; }
+.barre-stage__lien:hover { color: var(--blanc); }
+@media (max-width: 600px) { .barre-stage__detail { display: none; } }
+
+.projet__sujet { font-weight: 700; font-size: var(--t-m); color: var(--encre); margin-top: -0.35rem; }
+
+.en-bref { margin-top: clamp(1.5rem, 3vw, 2rem); background: var(--blanc); border: 1px solid var(--trait); border-radius: 16px; padding: clamp(1.1rem, 3vw, 1.6rem); }
+.en-bref__titre { font-family: var(--f-texte); font-stretch: 100%; font-size: var(--t-xs); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--encre-douce); margin-bottom: 0.9rem; }
+.en-bref dl { display: grid; gap: 1rem 2rem; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; }
+.en-bref dt { font-weight: 700; margin-bottom: 0.25rem; }
+.en-bref dd { margin: 0; color: var(--encre-douce); line-height: 1.5; }
+@media (max-width: 760px) { .en-bref dl { grid-template-columns: 1fr; } }
+
+.decision { background: var(--postit); border-radius: 4px; padding: 1.1rem 1.25rem; box-shadow: var(--ombre-note); max-width: var(--lecture); }
+.decision__titre { font-size: var(--t-xs); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.4rem; }
+.decision p { max-width: none; }
+.decision p + p strong { display: block; margin-bottom: 0.2rem; }
+
+.appel-stage { background: #E8F6EE; border-top: 1.5px solid #1E9E5A; }
+.appel-stage .wrap { padding-block: clamp(2.5rem, 6vw, 4rem); display: grid; gap: 1rem; justify-items: start; }
+.appel-stage h2 { font-size: var(--t-xl); }
+.appel-stage p { max-width: 42ch; font-size: var(--t-m); }
+.appel-stage__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.25rem; }
+
+.autre__lien { display: block; text-decoration: none; color: inherit; }
+.autre__data { aspect-ratio: 4 / 3; border-radius: 10px; border: 1px solid var(--trait); background: var(--blanc); padding: 1rem; display: flex; flex-direction: column; justify-content: center; gap: 0.75rem; }
+.autre h3 a { color: inherit; text-decoration: none; }
+.autre h3 a:hover { color: var(--bleu); }
+.autres__note { margin-top: 1.5rem; color: var(--encre-douce); font-size: var(--t-s); max-width: var(--lecture); }

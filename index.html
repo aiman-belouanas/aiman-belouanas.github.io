@@ -29,6 +29,12 @@
   <a class="skip-link" href="#contenu">Aller au contenu</a>
 
   <header class="site-header">
+    <div class="barre-stage">
+      <div class="wrap">
+        <p><span class="barre-stage__point" aria-hidden="true"></span><strong>Je cherche un stage en UX/UI</strong><span class="barre-stage__detail"> · 8 à 11 semaines, d’avril à juin 2027 · Strasbourg et alentours</span></p>
+        <a class="barre-stage__lien" href="index.html#contact">Me contacter</a>
+      </div>
+    </div>
     <div class="wrap">
       <a class="logo" href="index.html">Aiman Belouanas</a>
       <nav class="nav" aria-label="Menu principal">
@@ -44,15 +50,14 @@
 
     <!-- Accroche : le tri de cartes illustre ma façon de travailler -->
     <section class="hero" aria-labelledby="titre-accueil">
-      <canvas class="hero__scene" data-scene="accueil" aria-hidden="true"></canvas>
       <div class="wrap">
         <div class="hero__texte">
-          <p class="statut"><span><span class="statut__long">Je cherche un stage en UX/UI</span><span class="statut__moyen">Stage UX/UI recherché</span><span class="statut__court">Stage UX/UI</span> · avril-juin 2027</span></p>
+          <p class="statut"><span class="statut__point" aria-hidden="true"></span><span><strong>Je cherche un stage en UX/UI design</strong><span class="statut__detail">8 à 11 semaines, entre le 12 avril et le 25 juin 2027 · Strasbourg et alentours</span></span></p>
           <h1 id="titre-accueil">Je transforme un tas de <span style="white-space:nowrap">post-its</span> en sites faciles à utiliser.</h1>
           <p class="hero__intro">Étudiant en 2e année de BUT MMI à l’IUT de Haguenau, parcours UX design, basé à Strasbourg. J’écoute les utilisateurs, je teste mes idées avec eux, puis je conçois des interfaces claires.</p>
           <div class="hero__actions">
             <a class="btn btn--plein" href="#projets">Voir mes projets</a>
-            <a class="btn btn--contour" href="#contact">Me contacter</a>
+            <a class="btn btn--contour" href="#contact">Me proposer un stage</a>
           </div>
         </div>
 
@@ -89,19 +94,42 @@
       <div class="wrap">
         <div class="section__tete">
           <h2 id="titre-projets">Projets</h2>
-          <p>Cinq projets, dont un pour un vrai client. Pour chacun : ma démarche, mon rôle exact et ce que je referais autrement.</p>
+          <p>Quatre projets, dont un pour un vrai client. Pour chacun : ma démarche, mon rôle exact, une décision clé et ce que je referais autrement.</p>
         </div>
 
         <ul class="projets">
           <li class="projet">
             <figure class="couverture">
               <div class="board">
-                <img src="assets/img/eh-cover.webp" width="1600" height="1000" alt="Trois des onze visuels LinkedIn de la campagne de l’École d’Hiver 2027 : l’annonce, le rappel J-8 et l’ouverture des inscriptions." style="view-transition-name: couverture-ecole">
+                <img src="assets/img/strasspot-cover.webp" width="1600" height="1515" alt="Maquette Figma de Strasspot : la fiche du restaurant Le Paname, avec son prix, ses avis et son adresse." style="view-transition-name: couverture-strasspot">
+              </div>
+              <p class="couverture__note"><strong>6 testeurs</strong>4 problèmes repérés grâce aux tests</p>
+            </figure>
+            <div class="projet__texte">
+              <h3><a href="strasspot.html">Strasspot</a></h3>
+              <p class="projet__sujet">Tester un guide étudiant avec ses utilisateurs</p>
+              <p class="projet__resume">Un guide des bons plans à Strasbourg pour les étudiants. Des personas au tri de cartes, puis des tests avec 6 participants pour vérifier que le site se comprend sans aide.</p>
+              <dl class="meta">
+                <div><dt>Rôle</dt><dd>UX Designer</dd></div>
+                <div><dt>Équipe</dt><dd>6 étudiants</dd></div>
+                <div><dt>Date</dt><dd>Mars 2026</dd></div>
+              </dl>
+              <ul class="tags" aria-label="Méthodes et outils">
+                <li>Recherche utilisateur</li><li>Tri de cartes</li><li>Tests utilisateurs</li><li>Figma</li>
+              </ul>
+              <span class="lien-fleche" aria-hidden="true">Lire l’étude de cas</span>
+            </div>
+          </li>
+          <li class="projet">
+            <figure class="couverture">
+              <div class="board">
+                <img src="assets/img/eh-cover.webp" width="1600" height="1000" alt="Trois des onze visuels LinkedIn de la campagne de l’École d’Hiver 2027 : l’annonce, le rappel J-8 et l’ouverture des inscriptions." style="view-transition-name: couverture-ecole" loading="lazy">
               </div>
               <p class="couverture__note"><strong>11 publications</strong>conçues pour un vrai client</p>
             </figure>
             <div class="projet__texte">
               <h3><a href="ecole-dhiver.html">École d’Hiver 2027</a></h3>
+              <p class="projet__sujet">Faire connaître un séminaire, pour un vrai client</p>
               <p class="projet__resume">La communication d’un séminaire pour les doctorants d’Alsace, pour le Pôle universitaire d’innovation Alsace. J’ai piloté le projet, puis conçu la page web et les 11 publications LinkedIn.</p>
               <dl class="meta">
                 <div><dt>Rôle</dt><dd>Chef de projet, UX/UI</dd></div>
@@ -117,34 +145,13 @@
           <li class="projet">
             <figure class="couverture">
               <div class="board">
-                <img src="assets/img/strasspot-cover.webp" width="1600" height="1515" alt="Maquette Figma de Strasspot : la fiche du restaurant Le Paname, avec son prix, ses avis et son adresse." style="view-transition-name: couverture-strasspot" loading="lazy">
-              </div>
-              <p class="couverture__note"><strong>6 testeurs</strong>4 problèmes repérés grâce aux tests</p>
-            </figure>
-            <div class="projet__texte">
-              <h3><a href="strasspot.html">Strasspot</a></h3>
-              <p class="projet__resume">Un guide des bons plans à Strasbourg pour les étudiants. Des personas au tri de cartes, puis des tests avec 6 participants pour vérifier que le site se comprend sans aide.</p>
-              <dl class="meta">
-                <div><dt>Rôle</dt><dd>UX Designer</dd></div>
-                <div><dt>Équipe</dt><dd>6 étudiants</dd></div>
-                <div><dt>Date</dt><dd>Mars 2026</dd></div>
-              </dl>
-              <ul class="tags" aria-label="Méthodes et outils">
-                <li>Recherche utilisateur</li><li>Tri de cartes</li><li>Tests utilisateurs</li><li>Figma</li>
-              </ul>
-              <span class="lien-fleche" aria-hidden="true">Lire l’étude de cas</span>
-            </div>
-          </li>
-
-          <li class="projet">
-            <figure class="couverture">
-              <div class="board">
                 <img src="assets/img/zoo-cover.webp" width="1440" height="1000" alt="Page d’accueil du site ZooAtlas, guide du Parc zoologique et botanique de Mulhouse." style="view-transition-name: couverture-zooatlas" loading="lazy">
               </div>
               <p class="couverture__note"><strong>3 écrans</strong>Du wireframe au site responsive en ligne</p>
             </figure>
             <div class="projet__texte">
               <h3><a href="zooatlas.html">ZooAtlas</a></h3>
+              <p class="projet__sujet">Concevoir un site lisible sur trois tailles d’écran</p>
               <p class="projet__resume">Un guide du Parc zoologique et botanique de Mulhouse. Je l’ai conçu en wireframes sur trois tailles d’écran, puis codé seul en PHP et MySQL.</p>
               <dl class="meta">
                 <div><dt>Rôle</dt><dd>Conception et code</dd></div>
@@ -157,7 +164,6 @@
               <span class="lien-fleche" aria-hidden="true">Lire l’étude de cas</span>
             </div>
           </li>
-
           <li class="projet">
             <figure class="couverture">
               <div class="board">
@@ -167,6 +173,7 @@
             </figure>
             <div class="projet__texte">
               <h3><a href="veillees-dantan.html">Les Veillées d’Antan</a></h3>
+              <p class="projet__sujet">Piloter une équipe de 7, de l’audit à la stratégie</p>
               <p class="projet__resume">Un dîner immersif pour faire vivre le Musée alsacien de Haguenau. J’ai mené l’audit, la stratégie de communication trilingue et la coordination d’une équipe de 7.</p>
               <dl class="meta">
                 <div><dt>Rôle</dt><dd>Chef de projet</dd></div>
@@ -175,35 +182,6 @@
               </dl>
               <ul class="tags" aria-label="Méthodes et outils">
                 <li>Audit</li><li>Mapping concurrentiel</li><li>Personas</li><li>Gestion de projet</li>
-              </ul>
-              <span class="lien-fleche" aria-hidden="true">Lire l’étude de cas</span>
-            </div>
-          </li>
-
-          <li class="projet">
-            <figure class="couverture">
-              <div class="board">
-                <div class="couverture__visuel couverture__visuel--data" style="view-transition-name: couverture-kultuhr" role="img" aria-label="Graphique : les sorties culturelles dans le Bas-Rhin passent de l’indice 100 en 2015 à l’indice 80 en 2022.">
-                  <p style="font-weight:700">Sorties culturelles dans le Bas-Rhin</p>
-                  <div class="mini-barres" aria-hidden="true">
-                    <div class="barre"><span class="barre__annee">2015</span><div class="barre__piste"><div class="barre__valeur" style="--v:100%">100</div></div></div>
-                    <div class="barre barre--apres"><span class="barre__annee">2022</span><div class="barre__piste"><div class="barre__valeur" style="--v:80%">80</div></div></div>
-                  </div>
-                  <p style="font-size:var(--t-xs);color:var(--encre-douce)">Indice, base 100 en 2015. Source : INSEE.</p>
-                </div>
-              </div>
-              <p class="couverture__note"><strong>−20 %</strong>de sorties culturelles : le point de départ de l’audit</p>
-            </figure>
-            <div class="projet__texte">
-              <h3><a href="kultuhr.html">Kult’Uhr</a></h3>
-              <p class="projet__resume">Comprendre le public d’un futur festival en Nord Alsace grâce aux données de l’INSEE, puis construire une recommandation de communication en trois langues.</p>
-              <dl class="meta">
-                <div><dt>Rôle</dt><dd>Analyse et stratégie</dd></div>
-                <div><dt>Équipe</dt><dd>4 étudiants</dd></div>
-                <div><dt>Date</dt><dd>Octobre-décembre 2025</dd></div>
-              </dl>
-              <ul class="tags" aria-label="Méthodes et outils">
-                <li>Données INSEE</li><li>PESTEL</li><li>Personas</li><li>Plan de communication</li>
               </ul>
               <span class="lien-fleche" aria-hidden="true">Lire l’étude de cas</span>
             </div>
@@ -237,11 +215,22 @@
             <p>Un site bilingue français et italien. Les pages sont générées avec Twig à partir de fichiers de données.</p>
           </li>
           <li class="autre">
-            <img src="assets/img/court-metrage.webp" width="1200" height="675" alt="Image floutée du court métrage : deux personnes face à face, de part et d’autre d’une table." loading="lazy">
-            <h3>Court métrage « La consultation »</h3>
-            <p>Un homme se rend à sa consultation dans un centre médico-psychologique. Tourné en équipe de 5 : j’étais à l’image, avec un cadrage pensé pour faire ressentir son stress. Le film aborde la santé mentale. Le film n’est pas diffusé ici et l’image est floutée : je n’ai pas le droit de montrer les personnes filmées.</p>
+            <a class="autre__lien" href="kultuhr.html" tabindex="-1" aria-hidden="true">
+              <div class="couverture__visuel couverture__visuel--data autre__data" role="img" aria-label="Graphique : les sorties culturelles dans le Bas-Rhin passent de l’indice 100 en 2015 à l’indice 80 en 2022.">
+                  <p style="font-weight:700">Sorties culturelles dans le Bas-Rhin</p>
+                  <div class="mini-barres" aria-hidden="true">
+                    <div class="barre"><span class="barre__annee">2015</span><div class="barre__piste"><div class="barre__valeur" style="--v:100%">100</div></div></div>
+                    <div class="barre barre--apres"><span class="barre__annee">2022</span><div class="barre__piste"><div class="barre__valeur" style="--v:80%">80</div></div></div>
+                  </div>
+                  <p style="font-size:var(--t-xs);color:var(--encre-douce)">Indice, base 100 en 2015. Source : INSEE.</p>
+                </div>
+            </a>
+            <h3><a href="kultuhr.html">Kult’Uhr</a></h3>
+            <p>Comprendre le public d’un futur festival grâce aux données de l’INSEE, puis construire une recommandation de communication en trois langues.</p>
+            <a class="lien-fleche" href="kultuhr.html">Lire l’étude de cas</a>
           </li>
         </ul>
+        <p class="autres__note">Aussi : un court métrage tourné en équipe de 5, où j’étais à l’image. Il n’est pas diffusé ici, faute de droit à l’image.</p>
       </div>
     </section>
 
@@ -275,17 +264,8 @@
       </div>
     </section>
 
-    <!-- Bandeau : ma methode en cinq verbes (decoratif, lu une seule fois par les lecteurs d'ecran) -->
-    <div class="bandeau">
-      <p class="visually-hidden">Ma méthode : écouter, trier, maquetter, tester, recommencer.</p>
-      <div class="bandeau__piste" aria-hidden="true">
-        <span>Écouter</span><span>Trier</span><span>Maquetter</span><span>Tester</span><span>Recommencer</span>
-      </div>
-    </div>
-
     <!-- Contact -->
     <section class="contact" id="contact" aria-labelledby="titre-contact">
-      <canvas class="contact__scene" data-scene="contact" aria-hidden="true"></canvas>
       <div class="wrap">
         <h2 id="titre-contact">Vous cherchez un stagiaire en UX/UI design ?</h2>
         <p class="contact__stage">Je cherche un stage en UX/UI design de 8 à 11 semaines, entre le 12 avril et le 25 juin 2027, à Strasbourg ou aux alentours.</p>
@@ -305,7 +285,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <p>© 2026 Aiman Belouanas · <a href="mentions-legales.html">Mentions légales</a></p>
-      <p>Site conçu par moi et codé à la main, sans constructeur de site. Animations : GSAP, Lenis et three.js.</p>
+      <p>Site conçu par moi, codé avec l’aide d’une IA. Animations : GSAP.</p>
     </div>
   </footer>
 
@@ -315,13 +295,12 @@
       <h2 id="titre-visionneuse">Aperçu</h2>
       <button type="button" class="lecteur__fermer" data-visionneuse-fermer aria-label="Fermer l’aperçu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
     </div>
-    <div class="visionneuse__contenu" data-lenis-prevent></div>
+    <div class="visionneuse__contenu"></div>
   </dialog>
 
   <script src="assets/js/vendor/gsap.min.js" defer></script>
   <script src="assets/js/vendor/ScrollTrigger.min.js" defer></script>
   <script src="assets/js/vendor/SplitText.min.js" defer></script>
-  <script src="assets/js/vendor/lenis.min.js" defer></script>
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/anim.js" defer></script>
 </body>

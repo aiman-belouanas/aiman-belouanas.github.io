@@ -30,6 +30,12 @@
   <div class="progression" aria-hidden="true"></div>
 
   <header class="site-header">
+    <div class="barre-stage">
+      <div class="wrap">
+        <p><span class="barre-stage__point" aria-hidden="true"></span><strong>Je cherche un stage en UX/UI</strong><span class="barre-stage__detail"> · 8 à 11 semaines, d’avril à juin 2027 · Strasbourg et alentours</span></p>
+        <a class="barre-stage__lien" href="index.html#contact">Me contacter</a>
+      </div>
+    </div>
     <div class="wrap">
       <a class="logo" href="index.html">Aiman Belouanas</a>
       <nav class="nav" aria-label="Menu principal">
@@ -53,6 +59,14 @@
           <div><dt>Date</dt><dd>Juin 2026, SAÉ 202</dd></div>
           <div><dt>Outils</dt><dd>Trello, Discord</dd></div>
         </dl>
+        <div class="en-bref">
+          <h2 class="en-bref__titre">En bref</h2>
+          <dl>
+            <div><dt>Le problème</dt><dd>Un musée à la visite passive, presque invisible en ligne, alors que plus de la moitié des touristes en Alsace viennent de l’étranger.</dd></div>
+            <div><dt>Ce que j’ai fait</dt><dd>Chef de projet d’une équipe de 7. J’ai réalisé l’audit, la stratégie de communication et le suivi des risques.</dd></div>
+            <div><dt>Le résultat</dt><dd>Un concept qui occupe une place libre, immersif et à petit prix, et une stratégie en trois langues. 22 risques anticipés.</dd></div>
+          </dl>
+        </div>
         <figure class="cs-couverture">
           <div class="board">
             <img src="assets/img/veillees-cover.webp" width="1500" height="844" alt="Première diapositive du pitch en anglais : « Les Veillées d’Antan, an Immersive Alsatian Dining Experience »." style="view-transition-name: couverture-veillees">
@@ -146,6 +160,10 @@
                 <figcaption>Marie, cible secondaire.</figcaption>
               </figure>
             </div>
+            <aside class="decision" aria-label="Ma décision clé">
+              <p class="decision__titre">Ma décision clé</p>
+              <p><strong>Tout proposer en trois langues : français, anglais et allemand.</strong> Jean, notre persona de touriste étranger, craignait la barrière de la langue. Et 54 % des touristes en Alsace viennent de l’étranger. La visite et toute la communication sont donc trilingues.</p>
+            </aside>
           </section>
 
           <section class="bloc" id="strategie" aria-labelledby="h-strategie">
@@ -209,13 +227,24 @@
       </div>
     </div>
 
+    <section class="appel-stage" aria-labelledby="titre-appel">
+      <div class="wrap">
+        <h2 id="titre-appel">Ce travail vous parle ?</h2>
+        <p>Je cherche un stage en UX/UI design de 8 à 11 semaines, entre le 12 avril et le 25 juin 2027, à Strasbourg ou aux alentours.</p>
+        <div class="appel-stage__actions">
+          <a class="btn btn--plein" href="mailto:aimanbelouanas@gmail.com">M’écrire un e-mail</a>
+          <a class="btn btn--contour" href="cv-aiman-belouanas.pdf">Voir mon CV</a>
+        </div>
+      </div>
+    </section>
+
     <section class="suivant" aria-label="Projet suivant">
       <div class="wrap">
         <div>
           <p>Projet suivant</p>
-          <h2><a href="kultuhr.html">Kult’Uhr</a></h2>
+          <h2><a href="strasspot.html">Strasspot</a></h2>
         </div>
-        <a class="btn btn--plein" href="kultuhr.html">Lire l’étude de cas</a>
+        <a class="btn btn--plein" href="strasspot.html">Lire l’étude de cas</a>
       </div>
     </section>
   </main>
@@ -244,13 +273,12 @@
       <h2 id="titre-visionneuse">Aperçu</h2>
       <button type="button" class="lecteur__fermer" data-visionneuse-fermer aria-label="Fermer l’aperçu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
     </div>
-    <div class="visionneuse__contenu" data-lenis-prevent tabindex="0"></div>
+    <div class="visionneuse__contenu" tabindex="0"></div>
   </dialog>
 
   <script src="assets/js/vendor/gsap.min.js" defer></script>
   <script src="assets/js/vendor/ScrollTrigger.min.js" defer></script>
   <script src="assets/js/vendor/SplitText.min.js" defer></script>
-  <script src="assets/js/vendor/lenis.min.js" defer></script>
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/anim.js" defer></script>
 </body>
